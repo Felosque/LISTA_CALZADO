@@ -1,1 +1,2 @@
 d:\documentos_asus\documents\visual studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.exe.config
+D:\Documentos_Asus\Documents\VisualStudio2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.exe.config
