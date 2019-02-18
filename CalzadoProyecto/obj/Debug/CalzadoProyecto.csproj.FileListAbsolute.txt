@@ -1,2 +1,10 @@
 d:\documentos_asus\documents\visual studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.exe.config
 D:\Documentos_Asus\Documents\VisualStudio2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.exe.config
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.exe
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\bin\Debug\CalzadoProyecto.pdb
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.csprojResolveAssemblyReference.cache
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.VentanaPrincipal.resources
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Properties.Resources.resources
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.csproj.GenerateResource.Cache
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.exe
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.pdb
