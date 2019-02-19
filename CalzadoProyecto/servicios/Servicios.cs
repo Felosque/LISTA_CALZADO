@@ -8,10 +8,10 @@ namespace CalzadoProyecto.servicios
 {
     class Servicios
     {
-        private Calzado cabecera;
+        private static Calzado cabecera;
 
 
-        public void adicionarCalzadoAlInicio(Calzado pCalzado)
+        public static void adicionarCalzadoAlInicio(Calzado pCalzado)
         {
             if(cabecera == null){
                 cabecera = pCalzado;
@@ -22,7 +22,7 @@ namespace CalzadoProyecto.servicios
             }
         }
 
-        public void adicionarCalzadoAlFinal(Calzado pCalzado)
+        public static void adicionarCalzadoAlFinal(Calzado pCalzado)
         {
             if (cabecera == null){
                 cabecera = pCalzado;
@@ -32,7 +32,7 @@ namespace CalzadoProyecto.servicios
             }
         }
 
-        public void adicionarCalzadoEnMedio(Calzado pCalzado, int pNumero)
+        public static void adicionarCalzadoEnMedio(Calzado pCalzado, int pNumero)
         {
             Calzado recorrido = cabecera;
             Boolean salir = false;
@@ -50,7 +50,7 @@ namespace CalzadoProyecto.servicios
             pCalzado.cambiarSiguiente(tmp);
         }
 
-        public Calzado darUltimoCalzado()
+        public static Calzado darUltimoCalzado()
         {
             Calzado recorrido = cabecera;
             while(recorrido.darSiguiente() != null){

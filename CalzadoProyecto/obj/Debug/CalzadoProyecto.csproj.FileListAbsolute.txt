@@ -8,3 +8,4 @@ D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\Calzado
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.csproj.GenerateResource.Cache
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.exe
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.pdb
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Dialogos.GUIinsertarCalzado.resources

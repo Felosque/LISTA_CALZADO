@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalzadoProyecto.Dialogos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,17 @@ namespace CalzadoProyecto
         public VentanaPrincipal()
         {
             InitializeComponent();
+        }
+
+        private void insertarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIinsertarCalzado ven = new GUIinsertarCalzado();
+            ven.Show();
+        }
+
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
