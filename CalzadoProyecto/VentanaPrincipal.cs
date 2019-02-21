@@ -28,5 +28,17 @@ namespace CalzadoProyecto
         {
 
         }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIeliminarCalzado ven = new GUIeliminarCalzado();
+            ven.Show();
+        }
+
+        private void mostrarListaDeCalzadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIListaCalzado ven = new GUIListaCalzado();
+            ven.Show();
+        }
     }
 }

@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dialogos\GUIeliminarCalzado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogos\GUIeliminarCalzado.Designer.cs">
+      <DependentUpon>GUIeliminarCalzado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialogos\GUIinsertarCalzado.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogos\GUIinsertarCalzado.Designer.cs">
       <DependentUpon>GUIinsertarCalzado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogos\GUIListaCalzado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogos\GUIListaCalzado.Designer.cs">
+      <DependentUpon>GUIListaCalzado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogos\GUIVistaPrevia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogos\GUIVistaPrevia.Designer.cs">
+      <DependentUpon>GUIVistaPrevia.cs</DependentUpon>
     </Compile>
     <Compile Include="servicios\Calzado.cs" />
     <Compile Include="VentanaPrincipal.cs">
@@ -62,8 +80,17 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="servicios\Servicios.cs" />
+    <EmbeddedResource Include="Dialogos\GUIeliminarCalzado.resx">
+      <DependentUpon>GUIeliminarCalzado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogos\GUIinsertarCalzado.resx">
       <DependentUpon>GUIinsertarCalzado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogos\GUIListaCalzado.resx">
+      <DependentUpon>GUIListaCalzado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogos\GUIVistaPrevia.resx">
+      <DependentUpon>GUIVistaPrevia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VentanaPrincipal.resx">
       <DependentUpon>VentanaPrincipal.cs</DependentUpon>

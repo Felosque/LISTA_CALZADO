@@ -35,9 +35,6 @@
             this.calzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calzadoDeInicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calzadoDelFinalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calzadoEnPosiciónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calzadoPorNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actualizarCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,31 +104,10 @@
             // 
             // eliminarToolStripMenuItem
             // 
-            this.eliminarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.calzadoDeInicioToolStripMenuItem,
-            this.calzadoDelFinalToolStripMenuItem,
-            this.calzadoEnPosiciónToolStripMenuItem1});
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
             this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.eliminarToolStripMenuItem.Text = "Eliminar";
-            // 
-            // calzadoDeInicioToolStripMenuItem
-            // 
-            this.calzadoDeInicioToolStripMenuItem.Name = "calzadoDeInicioToolStripMenuItem";
-            this.calzadoDeInicioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.calzadoDeInicioToolStripMenuItem.Text = "Calzado de inicio";
-            // 
-            // calzadoDelFinalToolStripMenuItem
-            // 
-            this.calzadoDelFinalToolStripMenuItem.Name = "calzadoDelFinalToolStripMenuItem";
-            this.calzadoDelFinalToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.calzadoDelFinalToolStripMenuItem.Text = "Calzado del final";
-            // 
-            // calzadoEnPosiciónToolStripMenuItem1
-            // 
-            this.calzadoEnPosiciónToolStripMenuItem1.Name = "calzadoEnPosiciónToolStripMenuItem1";
-            this.calzadoEnPosiciónToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.calzadoEnPosiciónToolStripMenuItem1.Text = "Calzado en posición";
+            this.eliminarToolStripMenuItem.Text = "Eliminar Calzado";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
@@ -159,6 +135,7 @@
             this.mostrarListaDeCalzadoToolStripMenuItem.Name = "mostrarListaDeCalzadoToolStripMenuItem";
             this.mostrarListaDeCalzadoToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.mostrarListaDeCalzadoToolStripMenuItem.Text = "Mostrar lista de calzado";
+            this.mostrarListaDeCalzadoToolStripMenuItem.Click += new System.EventHandler(this.mostrarListaDeCalzadoToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -228,9 +205,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calzadoDeInicioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calzadoDelFinalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calzadoEnPosiciónToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem calzadoPorNombreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem actualizarCalzadoToolStripMenuItem;

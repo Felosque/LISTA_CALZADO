@@ -36,7 +36,7 @@ namespace CalzadoProyecto.servicios
         {
             Calzado recorrido = cabecera;
             Boolean salir = false;
-            for(int i = 1; i == pNumero - 1 && !salir && cabecera != null; i++)
+            for(int i = 0; i == pNumero - 1 && !salir && cabecera != null; i++)
             {
                 recorrido = recorrido.darSiguiente();
                 if(recorrido == null)
@@ -53,10 +53,50 @@ namespace CalzadoProyecto.servicios
         public static Calzado darUltimoCalzado()
         {
             Calzado recorrido = cabecera;
-            while(recorrido.darSiguiente() != null){
+            while(recorrido.darSiguiente() != null && recorrido != null){
                 recorrido = recorrido.darSiguiente();
             }
             return recorrido;
+        }
+
+        public static int darTamanoLista()
+        {
+            Calzado recorrido = cabecera;
+            int sumatoria = 0;
+            while (recorrido != null)
+            {
+                sumatoria++;
+                recorrido = recorrido.darSiguiente();
+            }
+            return sumatoria;
+        }
+
+        public static Calzado darCalzadoPorPosicion(int pNum)
+        {
+            Calzado recorrido = cabecera;
+            Boolean salir = false;
+            for(int i = 1; i == pNum - 1 && !salir && recorrido != null; i++)
+            {
+                if (recorrido.darSiguiente() != null){
+                    recorrido = recorrido.darSiguiente();
+                }
+                else{
+                    salir = true;
+                }
+            }
+            return recorrido;
+        }
+
+        public static void verCalzados()
+        {
+            Calzado recorrido = cabecera;
+            while (recorrido != null)
+            {
+                Console.WriteLine("Tipo: " + recorrido.darTipo() + " Talla: " + recorrido.darTalla() + " Precio: " + recorrido.darPrecio() + " Fecha: " + recorrido.darFechaDeCompra());
+                recorrido = recorrido.darSiguiente();
+            }
+            Console.WriteLine(darCalzadoPorPosicion(0).darTipo());
+            Console.WriteLine(darTamanoLista());
         }
 
     }

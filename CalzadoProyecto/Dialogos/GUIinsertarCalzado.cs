@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalzadoProyecto.servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,34 @@ namespace CalzadoProyecto.Dialogos
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String tipo = tbxTipo.Text;
+            int talla = Decimal.ToInt32(tbxTalla.Value);
+            int precio = Decimal.ToInt32(tbxPrecio.Value);
+            DateTime fecha = dteFecha.Value;
+            int posicion = Decimal.ToInt32(tbxPosicion.Value);
+
+            Calzado adicionar = new Calzado(tipo, talla, precio, fecha);
+
+            if (SelectorCalzado.SelectedIndex == 0)
+            {
+                Servicios.adicionarCalzadoAlInicio(adicionar);
+            }
+            else if (SelectorCalzado.SelectedIndex == 1)
+            {
+                Servicios.adicionarCalzadoEnMedio(adicionar, posicion);
+            }
+            else if (SelectorCalzado.SelectedIndex == 2)
+            {
+                Servicios.adicionarCalzadoAlFinal(adicionar);
+            }
+            MessageBox.Show("¡Se adiciono el calzado correctamente!\n" + "Tipo: " + tipo + "\nTalla: " + talla + "\nPrecio: "+ precio + "\nFecha: " + fecha);
+            tbxPosicion.Value = 0;
+            tbxPrecio.Value = 0;
+            tbxTalla.Value = 20;
+            tbxTipo.Text = "";
+            tbxTipo.Focus();
+        }
     }
 }
