@@ -21,6 +21,34 @@ namespace CalzadoProyecto.Dialogos
         private void GUIListaCalzado_Load(object sender, EventArgs e)
         {
             Servicios.verCalzados();
+            actualizarLista();
         }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            actualizarLista();
+        }
+
+        public void actualizarLista()
+        {
+            if (Servicios.darCabecera() != null)
+            {
+                dtaDatos.Rows.Clear();
+                for (int i = 0; i < Servicios.darTamanoLista(); i++)
+                {
+                    dtaDatos.Rows.Add();
+                    dtaDatos.Rows[i].Cells[0].Value = i;
+                    dtaDatos.Rows[i].Cells[1].Value = Servicios.darCalzadoPorPosicion(i).darTipo();
+                    dtaDatos.Rows[i].Cells[2].Value = Servicios.darCalzadoPorPosicion(i).darTalla();
+                    dtaDatos.Rows[i].Cells[3].Value = Servicios.darCalzadoPorPosicion(i).darPrecio();
+                    dtaDatos.Rows[i].Cells[4].Value = Servicios.darCalzadoPorPosicion(i).darFechaDeCompra();
+                }
+            }
+            else
+            {
+                MessageBox.Show("¡La lista esta vacia!");
+            }
+        }
+
     }
 }

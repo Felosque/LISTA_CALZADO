@@ -28,57 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtaDatos = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaDatos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtaDatos
             // 
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtaDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dtaDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtaDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.tipo,
             this.talla,
             this.precio,
             this.fecha});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 64);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 257);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Width = 70;
-            // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Tipo";
-            this.tipo.Name = "tipo";
-            // 
-            // talla
-            // 
-            this.talla.HeaderText = "Talla";
-            this.talla.Name = "talla";
-            // 
-            // precio
-            // 
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            // 
-            // fecha
-            // 
-            this.fecha.HeaderText = "Fecha de compra";
-            this.fecha.Name = "fecha";
-            this.fecha.Width = 130;
+            this.dtaDatos.Location = new System.Drawing.Point(12, 64);
+            this.dtaDatos.Name = "dtaDatos";
+            this.dtaDatos.Size = new System.Drawing.Size(546, 257);
+            this.dtaDatos.TabIndex = 0;
             // 
             // label2
             // 
@@ -91,17 +65,58 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "LISTA DE CALZADO";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(216, 327);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(128, 34);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Text = "Actualizar Lista";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Width = 50;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "Tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.Width = 110;
+            // 
+            // talla
+            // 
+            this.talla.HeaderText = "Talla";
+            this.talla.Name = "talla";
+            this.talla.Width = 50;
+            // 
+            // precio
+            // 
+            this.precio.HeaderText = "Precio";
+            this.precio.Name = "precio";
+            this.precio.Width = 120;
+            // 
+            // fecha
+            // 
+            this.fecha.HeaderText = "Fecha de compra";
+            this.fecha.Name = "fecha";
+            this.fecha.Width = 170;
+            // 
             // GUIListaCalzado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 333);
+            this.ClientSize = new System.Drawing.Size(570, 371);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtaDatos);
             this.Name = "GUIListaCalzado";
             this.Text = "GUIListaCalzado";
             this.Load += new System.EventHandler(this.GUIListaCalzado_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtaDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,8 +124,9 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtaDatos;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn talla;

@@ -11,6 +11,11 @@ namespace CalzadoProyecto.servicios
         private static Calzado cabecera;
 
 
+        public static Calzado darCabecera()
+        {
+            return cabecera;
+        }
+
         public static void adicionarCalzadoAlInicio(Calzado pCalzado)
         {
             if(cabecera == null){
@@ -34,20 +39,32 @@ namespace CalzadoProyecto.servicios
 
         public static void adicionarCalzadoEnMedio(Calzado pCalzado, int pNumero)
         {
-            Calzado recorrido = cabecera;
-            Boolean salir = false;
-            for(int i = 0; i == pNumero - 1 && !salir && cabecera != null; i++)
-            {
-                recorrido = recorrido.darSiguiente();
-                if(recorrido == null)
-                {
-                    salir = true;
-                }
-            }
-
+            Calzado recorrido = darCalzadoPorPosicion(pNumero);
             Calzado tmp = recorrido.darSiguiente();
             recorrido.cambiarSiguiente(pCalzado);
             pCalzado.cambiarSiguiente(tmp);
+        }
+
+        public static void eliminarCalzadoAlInicio()
+        {
+            if(cabecera != null)
+            {
+                cabecera = cabecera.darSiguiente();
+            }
+        }
+
+        public static void eliminarCalzadoEnMedio(int pNum)
+        {
+            Calzado eliminar = darCalzadoPorPosicion(pNum);
+            Calzado tmp = darCalzadoPorPosicion(pNum - 1);
+            tmp.cambiarSiguiente(eliminar.darSiguiente());
+            eliminar.cambiarSiguiente(null);
+        }
+
+        public static void eliminarCalzadoFinal()
+        {
+            Calzado eliminar = darCalzadoPorPosicion(darTamanoLista() - 2);
+            eliminar.cambiarSiguiente(null);
         }
 
         public static Calzado darUltimoCalzado()
@@ -74,15 +91,10 @@ namespace CalzadoProyecto.servicios
         public static Calzado darCalzadoPorPosicion(int pNum)
         {
             Calzado recorrido = cabecera;
-            Boolean salir = false;
-            for(int i = 1; i == pNum - 1 && !salir && recorrido != null; i++)
+            while(recorrido != null && pNum > 0)
             {
-                if (recorrido.darSiguiente() != null){
-                    recorrido = recorrido.darSiguiente();
-                }
-                else{
-                    salir = true;
-                }
+                recorrido = recorrido.darSiguiente();
+                pNum--;
             }
             return recorrido;
         }
@@ -95,7 +107,6 @@ namespace CalzadoProyecto.servicios
                 Console.WriteLine("Tipo: " + recorrido.darTipo() + " Talla: " + recorrido.darTalla() + " Precio: " + recorrido.darPrecio() + " Fecha: " + recorrido.darFechaDeCompra());
                 recorrido = recorrido.darSiguiente();
             }
-            Console.WriteLine(darCalzadoPorPosicion(0).darTipo());
             Console.WriteLine(darTamanoLista());
         }
 

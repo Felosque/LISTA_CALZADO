@@ -42,7 +42,7 @@ namespace CalzadoProyecto.Dialogos
         {
             int id = 0;
             if(SelectorCalzado.SelectedIndex == 2){
-                id = Servicios.darTamanoLista();
+                id = Servicios.darTamanoLista() - 1;
             }
             else{
                 id = Decimal.ToInt32(tbxPosicion.Value);
@@ -54,6 +54,25 @@ namespace CalzadoProyecto.Dialogos
             }else{
                 GUIVistaPrevia ven = new GUIVistaPrevia(id);
                 ven.ShowDialog();
+            }
+        }
+
+        private void btEliminarCalzado_Click(object sender, EventArgs e)
+        {
+            if (SelectorCalzado.SelectedIndex == 0)
+            {
+                Servicios.eliminarCalzadoAlInicio();
+                MessageBox.Show("Se elimino el calzado");
+            }
+            else if (SelectorCalzado.SelectedIndex == 1)
+            {
+                Servicios.eliminarCalzadoEnMedio(Decimal.ToInt32(tbxPosicion.Value));
+                MessageBox.Show("Se elimino el calzado");
+            }
+            else if (SelectorCalzado.SelectedIndex == 2)
+            {
+                Servicios.eliminarCalzadoFinal();
+                MessageBox.Show("Se elimino el calzado");
             }
         }
     }

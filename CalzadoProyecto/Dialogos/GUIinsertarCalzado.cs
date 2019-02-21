@@ -30,16 +30,19 @@ namespace CalzadoProyecto.Dialogos
             {
                 txtPosicion.Visible = false;
                 tbxPosicion.Visible = false;
+                msgError.Visible = false;
             }
             else if (SelectorCalzado.SelectedIndex == 1)
             {
                 txtPosicion.Visible = true;
                 tbxPosicion.Visible = true;
+                msgError.Visible = true;
             }
             else if(SelectorCalzado.SelectedIndex == 2)
             {
                 txtPosicion.Visible = false;
                 tbxPosicion.Visible = false;
+                msgError.Visible = false;
             }
         }
 
@@ -65,7 +68,7 @@ namespace CalzadoProyecto.Dialogos
             {
                 Servicios.adicionarCalzadoAlFinal(adicionar);
             }
-            MessageBox.Show("¡Se adiciono el calzado correctamente!\n" + "Tipo: " + tipo + "\nTalla: " + talla + "\nPrecio: "+ precio + "\nFecha: " + fecha);
+            MessageBox.Show("¡Se adiciono el calzado correctamente!\n" + "\nTipo: " + tipo + "\nTalla: " + talla + "\nPrecio: "+ precio + "\nFecha: " + fecha);
             tbxPosicion.Value = 0;
             tbxPrecio.Value = 0;
             tbxTalla.Value = 20;

@@ -32,6 +32,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SelectorCalzado = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbxPosicion = new System.Windows.Forms.NumericUpDown();
+            this.tbxPrecio = new System.Windows.Forms.NumericUpDown();
+            this.tbxTalla = new System.Windows.Forms.NumericUpDown();
             this.txtPosicion = new System.Windows.Forms.Label();
             this.tbxTipo = new System.Windows.Forms.TextBox();
             this.dteFecha = new System.Windows.Forms.DateTimePicker();
@@ -41,15 +44,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.tbxTalla = new System.Windows.Forms.NumericUpDown();
-            this.tbxPrecio = new System.Windows.Forms.NumericUpDown();
-            this.tbxPosicion = new System.Windows.Forms.NumericUpDown();
             this.msgError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPosicion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -105,6 +105,52 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Características";
+            // 
+            // tbxPosicion
+            // 
+            this.tbxPosicion.Location = new System.Drawing.Point(119, 144);
+            this.tbxPosicion.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.tbxPosicion.Name = "tbxPosicion";
+            this.tbxPosicion.Size = new System.Drawing.Size(200, 20);
+            this.tbxPosicion.TabIndex = 18;
+            // 
+            // tbxPrecio
+            // 
+            this.tbxPrecio.Location = new System.Drawing.Point(119, 87);
+            this.tbxPrecio.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.tbxPrecio.Name = "tbxPrecio";
+            this.tbxPrecio.Size = new System.Drawing.Size(200, 20);
+            this.tbxPrecio.TabIndex = 17;
+            // 
+            // tbxTalla
+            // 
+            this.tbxTalla.Location = new System.Drawing.Point(119, 59);
+            this.tbxTalla.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.tbxTalla.Minimum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.tbxTalla.Name = "tbxTalla";
+            this.tbxTalla.Size = new System.Drawing.Size(200, 20);
+            this.tbxTalla.TabIndex = 16;
+            this.tbxTalla.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
             // 
             // txtPosicion
             // 
@@ -191,62 +237,16 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tbxTalla
-            // 
-            this.tbxTalla.Location = new System.Drawing.Point(119, 59);
-            this.tbxTalla.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.tbxTalla.Minimum = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.tbxTalla.Name = "tbxTalla";
-            this.tbxTalla.Size = new System.Drawing.Size(200, 20);
-            this.tbxTalla.TabIndex = 16;
-            this.tbxTalla.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // tbxPrecio
-            // 
-            this.tbxPrecio.Location = new System.Drawing.Point(119, 87);
-            this.tbxPrecio.Maximum = new decimal(new int[] {
-            -727379968,
-            232,
-            0,
-            0});
-            this.tbxPrecio.Name = "tbxPrecio";
-            this.tbxPrecio.Size = new System.Drawing.Size(200, 20);
-            this.tbxPrecio.TabIndex = 17;
-            // 
-            // tbxPosicion
-            // 
-            this.tbxPosicion.Location = new System.Drawing.Point(119, 144);
-            this.tbxPosicion.Maximum = new decimal(new int[] {
-            1000000000,
-            0,
-            0,
-            0});
-            this.tbxPosicion.Name = "tbxPosicion";
-            this.tbxPosicion.Size = new System.Drawing.Size(200, 20);
-            this.tbxPosicion.TabIndex = 18;
-            // 
             // msgError
             // 
             this.msgError.AutoSize = true;
             this.msgError.ForeColor = System.Drawing.Color.DarkRed;
             this.msgError.Location = new System.Drawing.Point(29, 334);
             this.msgError.Name = "msgError";
-            this.msgError.Size = new System.Drawing.Size(221, 13);
+            this.msgError.Size = new System.Drawing.Size(378, 13);
             this.msgError.TabIndex = 6;
-            this.msgError.Text = "Error: no se inserto nada en el tipo de zapato.";
-            this.msgError.Visible = false;
+            this.msgError.Text = "Nota: Se inserta el calzado a la posición siguiente de la recibida por parametro." +
+    "";
             // 
             // GUIinsertarCalzado
             // 
@@ -265,9 +265,9 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPosicion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

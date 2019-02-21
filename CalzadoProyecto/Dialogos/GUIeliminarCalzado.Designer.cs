@@ -63,7 +63,7 @@
             this.groupBox1.Size = new System.Drawing.Size(383, 129);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "¿Cual calzado deberia eliminar?";
+            this.groupBox1.Text = "¿Cuál calzado debería eliminar? ";
             // 
             // tbxPosicion
             // 
@@ -131,6 +131,7 @@
             this.btEliminarCalzado.TabIndex = 7;
             this.btEliminarCalzado.Text = "ELIMINAR CALZADO";
             this.btEliminarCalzado.UseVisualStyleBackColor = true;
+            this.btEliminarCalzado.Click += new System.EventHandler(this.btEliminarCalzado_Click);
             // 
             // btVistaPrevia
             // 

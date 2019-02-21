@@ -166,7 +166,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Name = "GUIVistaPrevia";
-            this.Text = "GUIVistaPrevia";
+            this.Text = "Calzado";
             this.Load += new System.EventHandler(this.GUIVistaPrevia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
