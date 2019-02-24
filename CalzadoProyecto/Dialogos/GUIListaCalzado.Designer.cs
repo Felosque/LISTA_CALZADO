@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.dtaDatos = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtaDatos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,27 +53,6 @@
             this.dtaDatos.Name = "dtaDatos";
             this.dtaDatos.Size = new System.Drawing.Size(546, 257);
             this.dtaDatos.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(126, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(308, 38);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "LISTA DE CALZADO";
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(216, 327);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(128, 34);
-            this.btnActualizar.TabIndex = 7;
-            this.btnActualizar.Text = "Actualizar Lista";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // id
             // 
@@ -105,6 +84,27 @@
             this.fecha.Name = "fecha";
             this.fecha.Width = 170;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label2.Location = new System.Drawing.Point(126, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(308, 38);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "LISTA DE CALZADO";
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(216, 327);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(128, 34);
+            this.btnActualizar.TabIndex = 7;
+            this.btnActualizar.Text = "Actualizar Lista";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // GUIListaCalzado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -114,7 +114,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtaDatos);
             this.Name = "GUIListaCalzado";
-            this.Text = "GUIListaCalzado";
+            this.Text = "LISTA DE CALZADO";
             this.Load += new System.EventHandler(this.GUIListaCalzado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtaDatos)).EndInit();
             this.ResumeLayout(false);

@@ -1,4 +1,5 @@
-﻿using CalzadoProyecto.servicios;
+﻿using CalzadoProyecto.Exepciones;
+using CalzadoProyecto.servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,7 @@ namespace CalzadoProyecto.Dialogos
             {
                 txtPosicion.Visible = false;
                 tbxPosicion.Visible = false;
+                tbxPosicion.Value = 0;
             }
             else if (SelectorCalzado.SelectedIndex == 1)
             {
@@ -48,31 +50,39 @@ namespace CalzadoProyecto.Dialogos
                 id = Decimal.ToInt32(tbxPosicion.Value);
             }
 
-            if(Servicios.darCalzadoPorPosicion(id) == null)
+            try
             {
-                MessageBox.Show("¡El calzado qué quieres visualizar no existe!");
-            }else{
+                Servicios.darCalzadoPorPosicion(id);
                 GUIVistaPrevia ven = new GUIVistaPrevia(id);
                 ven.ShowDialog();
+            }catch(MensajeExepcion fe)
+            {
+                MessageBox.Show(fe.darExepcion());
             }
         }
 
         private void btEliminarCalzado_Click(object sender, EventArgs e)
         {
-            if (SelectorCalzado.SelectedIndex == 0)
+            try
             {
-                Servicios.eliminarCalzadoAlInicio();
-                MessageBox.Show("Se elimino el calzado");
-            }
-            else if (SelectorCalzado.SelectedIndex == 1)
+                if (SelectorCalzado.SelectedIndex == 0)
+                {
+                    Servicios.eliminarCalzadoAlInicio();
+                    MessageBox.Show("Se elimino el calzado");
+                }
+                else if (SelectorCalzado.SelectedIndex == 1)
+                {
+                    Servicios.eliminarCalzadoEnMedio(Decimal.ToInt32(tbxPosicion.Value));
+                    MessageBox.Show("Se elimino el calzado");
+                }
+                else if (SelectorCalzado.SelectedIndex == 2)
+                {
+                    Servicios.eliminarCalzadoFinal();
+                    MessageBox.Show("Se elimino el calzado");
+                }
+            }catch(MensajeExepcion fe)
             {
-                Servicios.eliminarCalzadoEnMedio(Decimal.ToInt32(tbxPosicion.Value));
-                MessageBox.Show("Se elimino el calzado");
-            }
-            else if (SelectorCalzado.SelectedIndex == 2)
-            {
-                Servicios.eliminarCalzadoFinal();
-                MessageBox.Show("Se elimino el calzado");
+                MessageBox.Show(fe.darExepcion());
             }
         }
     }

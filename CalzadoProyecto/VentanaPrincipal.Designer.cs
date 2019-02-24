@@ -81,8 +81,9 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // calzadoToolStripMenuItem
             // 
@@ -148,8 +149,9 @@
             // creditosToolStripMenuItem
             // 
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
-            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.creditosToolStripMenuItem.Text = "Creditos";
+            this.creditosToolStripMenuItem.Click += new System.EventHandler(this.creditosToolStripMenuItem_Click);
             // 
             // label2
             // 
@@ -182,7 +184,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VentanaPrincipal";
-            this.Text = "Form1";
+            this.Text = "LISTA DE CALZADO";
             this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

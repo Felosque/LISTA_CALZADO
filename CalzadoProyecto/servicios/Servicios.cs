@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalzadoProyecto.Exepciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,10 @@ namespace CalzadoProyecto.servicios
             {
                 cabecera = cabecera.darSiguiente();
             }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder eliminar al inicio.");
+            }
         }
 
         public static void eliminarCalzadoEnMedio(int pNum)
@@ -63,15 +68,34 @@ namespace CalzadoProyecto.servicios
 
         public static void eliminarCalzadoFinal()
         {
-            Calzado eliminar = darCalzadoPorPosicion(darTamanoLista() - 2);
-            eliminar.cambiarSiguiente(null);
+            if (cabecera != null)
+            {
+                if(cabecera.darSiguiente() == null)
+                {
+                    cabecera = null;
+                }
+                Calzado eliminar = darCalzadoPorPosicion(darTamanoLista() - 2);
+                eliminar.cambiarSiguiente(null);
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder eliminar al final.");
+            }
         }
 
         public static Calzado darUltimoCalzado()
         {
             Calzado recorrido = cabecera;
-            while(recorrido.darSiguiente() != null && recorrido != null){
-                recorrido = recorrido.darSiguiente();
+            if (recorrido != null)
+            {
+                while (recorrido.darSiguiente() != null && recorrido != null)
+                {
+                    recorrido = recorrido.darSiguiente();
+                }
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista del calzado esta vacia!");
             }
             return recorrido;
         }
@@ -96,6 +120,10 @@ namespace CalzadoProyecto.servicios
                 recorrido = recorrido.darSiguiente();
                 pNum--;
             }
+            if(recorrido == null)
+            {
+                throw new MensajeExepcion("¡No se pudo encontrar el calzado en la posición especificada!");
+            }
             return recorrido;
         }
 
@@ -107,7 +135,6 @@ namespace CalzadoProyecto.servicios
                 Console.WriteLine("Tipo: " + recorrido.darTipo() + " Talla: " + recorrido.darTalla() + " Precio: " + recorrido.darPrecio() + " Fecha: " + recorrido.darFechaDeCompra());
                 recorrido = recorrido.darSiguiente();
             }
-            Console.WriteLine(darTamanoLista());
         }
 
     }

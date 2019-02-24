@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CalzadoProyecto.Exepciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,10 @@ namespace CalzadoProyecto.servicios
 
         public Calzado(String pTipo, int pTalla, double pPrecio, DateTime pFecha)
         {
-            tipo = pTipo;
-            talla = pTalla;
-            precio = pPrecio;
-            fechaCompra = pFecha;
+            cambiarTipo(pTipo);
+            cambiarTalla(pTalla);
+            cambiarPrecio(pPrecio);
+            cambiarFechaDeCompra(pFecha);
             sgte = null;
         }
 
@@ -35,7 +36,13 @@ namespace CalzadoProyecto.servicios
 
         public void cambiarTipo(String pTipo)
         {
-            tipo = pTipo;
+            if (pTipo != null && pTipo.Length != 0)
+            {
+                tipo = pTipo;
+            }
+            else{
+                throw new MensajeExepcion("¡Debe haber algun tipo de calzado especificado!");
+            }
         }
 
         public int darTalla()
@@ -45,7 +52,15 @@ namespace CalzadoProyecto.servicios
 
         public void cambiarTalla(int pTalla)
         {
-            talla = pTalla;
+            if(pTalla >= 20 && pTalla <= 50)
+            {
+                talla = pTalla;
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La talla no puede ser mayor a 50 y menor a 20!");
+            }
+            
         }
 
         public double darPrecio()
@@ -55,7 +70,14 @@ namespace CalzadoProyecto.servicios
 
         public void cambiarPrecio(double pPrecio)
         {
-            precio = pPrecio;
+            if (pPrecio >= 1 && pPrecio <= 100000000)
+            {
+                precio = pPrecio;
+            }
+            else
+            {
+                throw new MensajeExepcion("¡El precio del calzado debe ser coherente!");
+            }
         }
 
         public DateTime darFechaDeCompra()
@@ -65,7 +87,16 @@ namespace CalzadoProyecto.servicios
 
         public void cambiarFechaDeCompra(DateTime pFechaCompra)
         {
-            fechaCompra = pFechaCompra;
+            DateTime localDate = DateTime.Now;
+            Console.WriteLine("L: " + localDate.ToString() + " - F:" + localDate.ToString());
+            if (pFechaCompra.CompareTo(localDate) <= 0)
+            {
+                fechaCompra = pFechaCompra;
+            }
+            else
+            {
+                throw new FechaExeption("¡No se puede comprar un calzado un día despues al de hoy!");
+            }
         }
 
         public Calzado darSiguiente()

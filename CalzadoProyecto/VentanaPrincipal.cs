@@ -40,5 +40,15 @@ namespace CalzadoProyecto
             GUIListaCalzado ven = new GUIListaCalzado();
             ven.Show();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void creditosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Proyecto creado por: \n\n-Andres Felipe Novoa\n-Luis Felipe Londoño Medina.\n\n© Todos los derechos reservados ©");
+        }
     }
 }

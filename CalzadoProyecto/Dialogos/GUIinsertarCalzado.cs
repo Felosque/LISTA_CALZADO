@@ -1,4 +1,5 @@
-﻿using CalzadoProyecto.servicios;
+﻿using CalzadoProyecto.Exepciones;
+using CalzadoProyecto.servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,7 @@ namespace CalzadoProyecto.Dialogos
             {
                 txtPosicion.Visible = false;
                 tbxPosicion.Visible = false;
+                tbxPosicion.Value = 0;
                 msgError.Visible = false;
             }
             else if (SelectorCalzado.SelectedIndex == 1)
@@ -54,26 +56,36 @@ namespace CalzadoProyecto.Dialogos
             DateTime fecha = dteFecha.Value;
             int posicion = Decimal.ToInt32(tbxPosicion.Value);
 
-            Calzado adicionar = new Calzado(tipo, talla, precio, fecha);
-
-            if (SelectorCalzado.SelectedIndex == 0)
+            try
             {
-                Servicios.adicionarCalzadoAlInicio(adicionar);
+                Calzado adicionar = new Calzado(tipo, talla, precio, fecha);
+                if (SelectorCalzado.SelectedIndex == 0)
+                {
+                    Servicios.adicionarCalzadoAlInicio(adicionar);
+                }
+                else if (SelectorCalzado.SelectedIndex == 1)
+                {
+                    Servicios.adicionarCalzadoEnMedio(adicionar, posicion);
+                }
+                else if (SelectorCalzado.SelectedIndex == 2)
+                {
+                    Servicios.adicionarCalzadoAlFinal(adicionar);
+                }
+                MessageBox.Show("¡Se adiciono el calzado correctamente!\n" + "\nTipo: " + tipo + "\nTalla: " + talla + "\nPrecio: " + precio + "\nFecha: " + fecha);
+                tbxPosicion.Value = 0;
+                tbxPrecio.Value = 1;
+                tbxTalla.Value = 20;
+                tbxTipo.Text = "";
+                tbxTipo.Focus();
             }
-            else if (SelectorCalzado.SelectedIndex == 1)
+            catch(FechaExeption fe)
             {
-                Servicios.adicionarCalzadoEnMedio(adicionar, posicion);
+                MessageBox.Show(fe.darExepcion());
             }
-            else if (SelectorCalzado.SelectedIndex == 2)
+            catch(MensajeExepcion fa)
             {
-                Servicios.adicionarCalzadoAlFinal(adicionar);
-            }
-            MessageBox.Show("¡Se adiciono el calzado correctamente!\n" + "\nTipo: " + tipo + "\nTalla: " + talla + "\nPrecio: "+ precio + "\nFecha: " + fecha);
-            tbxPosicion.Value = 0;
-            tbxPrecio.Value = 0;
-            tbxTalla.Value = 20;
-            tbxTipo.Text = "";
-            tbxTipo.Focus();
+                MessageBox.Show(fa.darExepcion());
+            } 
         }
     }
 }

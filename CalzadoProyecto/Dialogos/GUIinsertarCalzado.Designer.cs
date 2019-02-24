@@ -32,11 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SelectorCalzado = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbxTipo = new System.Windows.Forms.ComboBox();
             this.tbxPosicion = new System.Windows.Forms.NumericUpDown();
             this.tbxPrecio = new System.Windows.Forms.NumericUpDown();
             this.tbxTalla = new System.Windows.Forms.NumericUpDown();
             this.txtPosicion = new System.Windows.Forms.Label();
-            this.tbxTipo = new System.Windows.Forms.TextBox();
             this.dteFecha = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -88,11 +88,11 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbxTipo);
             this.groupBox2.Controls.Add(this.tbxPosicion);
             this.groupBox2.Controls.Add(this.tbxPrecio);
             this.groupBox2.Controls.Add(this.tbxTalla);
             this.groupBox2.Controls.Add(this.txtPosicion);
-            this.groupBox2.Controls.Add(this.tbxTipo);
             this.groupBox2.Controls.Add(this.dteFecha);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
@@ -105,6 +105,20 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Características";
+            // 
+            // tbxTipo
+            // 
+            this.tbxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tbxTipo.FormattingEnabled = true;
+            this.tbxTipo.Items.AddRange(new object[] {
+            "Chanclas",
+            "Botas",
+            "Tacones",
+            "Deportivos"});
+            this.tbxTipo.Location = new System.Drawing.Point(119, 30);
+            this.tbxTipo.Name = "tbxTipo";
+            this.tbxTipo.Size = new System.Drawing.Size(200, 21);
+            this.tbxTipo.TabIndex = 19;
             // 
             // tbxPosicion
             // 
@@ -120,15 +134,30 @@
             // 
             // tbxPrecio
             // 
+            this.tbxPrecio.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.tbxPrecio.Location = new System.Drawing.Point(119, 87);
             this.tbxPrecio.Maximum = new decimal(new int[] {
             -727379968,
             232,
             0,
             0});
+            this.tbxPrecio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(200, 20);
             this.tbxPrecio.TabIndex = 17;
+            this.tbxPrecio.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tbxTalla
             // 
@@ -161,15 +190,6 @@
             this.txtPosicion.TabIndex = 14;
             this.txtPosicion.Text = "Posición:";
             this.txtPosicion.Visible = false;
-            // 
-            // tbxTipo
-            // 
-            this.tbxTipo.AccessibleDescription = "(insertar tipo de calzado) Ejm: Bota, Chancla";
-            this.tbxTipo.AccessibleName = "(insertar tipo de calzado)";
-            this.tbxTipo.Location = new System.Drawing.Point(119, 30);
-            this.tbxTipo.Name = "tbxTipo";
-            this.tbxTipo.Size = new System.Drawing.Size(200, 20);
-            this.tbxTipo.TabIndex = 13;
             // 
             // dteFecha
             // 
@@ -285,12 +305,12 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label txtPosicion;
-        private System.Windows.Forms.TextBox tbxTipo;
         private System.Windows.Forms.DateTimePicker dteFecha;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.NumericUpDown tbxTalla;
         private System.Windows.Forms.NumericUpDown tbxPrecio;
         private System.Windows.Forms.NumericUpDown tbxPosicion;
         private System.Windows.Forms.Label msgError;
+        private System.Windows.Forms.ComboBox tbxTipo;
     }
 }
