@@ -18,15 +18,20 @@ namespace CalzadoProyecto
             InitializeComponent();
         }
 
+        private void VentanaPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private void insertarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GUIinsertarCalzado ven = new GUIinsertarCalzado();
             ven.Show();
-        }
-
-        private void VentanaPrincipal_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -41,14 +46,16 @@ namespace CalzadoProyecto
             ven.Show();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buscarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            GUIbuscarCalzado ven = new GUIbuscarCalzado();
+            ven.Show();
         }
 
         private void creditosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Proyecto creado por: \n\n-Andres Felipe Novoa\n-Luis Felipe Londoño Medina.\n\n© Todos los derechos reservados ©");
         }
+
     }
 }

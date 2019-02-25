@@ -129,7 +129,7 @@
             this.btEliminarCalzado.Name = "btEliminarCalzado";
             this.btEliminarCalzado.Size = new System.Drawing.Size(145, 34);
             this.btEliminarCalzado.TabIndex = 7;
-            this.btEliminarCalzado.Text = "ELIMINAR CALZADO";
+            this.btEliminarCalzado.Text = "Eliminar Calzado";
             this.btEliminarCalzado.UseVisualStyleBackColor = true;
             this.btEliminarCalzado.Click += new System.EventHandler(this.btEliminarCalzado_Click);
             // 
@@ -154,7 +154,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Name = "GUIeliminarCalzado";
-            this.Text = "Eliminar Calzado";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPosicion)).EndInit();

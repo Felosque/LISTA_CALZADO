@@ -52,7 +52,7 @@ namespace CalzadoProyecto.Dialogos
 
             try
             {
-                Servicios.darCalzadoPorPosicion(id);
+                Servicios.buscarCalzadoPorPosicion(id);
                 GUIVistaPrevia ven = new GUIVistaPrevia(id);
                 ven.ShowDialog();
             }catch(MensajeExepcion fe)

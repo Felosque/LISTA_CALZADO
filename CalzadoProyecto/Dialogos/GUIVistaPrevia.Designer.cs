@@ -40,7 +40,9 @@
             this.tbxPrecio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tbxTalla = new System.Windows.Forms.TextBox();
+            this.pbxImg = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -57,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 53);
+            this.label1.Location = new System.Drawing.Point(71, 101);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(31, 13);
             this.label1.TabIndex = 6;
@@ -66,13 +68,14 @@
             // tbxTipo
             // 
             this.tbxTipo.Enabled = false;
-            this.tbxTipo.Location = new System.Drawing.Point(118, 53);
+            this.tbxTipo.Location = new System.Drawing.Point(118, 101);
             this.tbxTipo.Name = "tbxTipo";
             this.tbxTipo.Size = new System.Drawing.Size(160, 20);
             this.tbxTipo.TabIndex = 7;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pbxImg);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.tbxPosicion);
             this.groupBox1.Controls.Add(this.label5);
@@ -85,15 +88,16 @@
             this.groupBox1.Controls.Add(this.tbxTipo);
             this.groupBox1.Location = new System.Drawing.Point(12, 75);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(359, 198);
+            this.groupBox1.Size = new System.Drawing.Size(359, 253);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Caracteristicas";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(54, 157);
+            this.label6.Location = new System.Drawing.Point(54, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 13);
             this.label6.TabIndex = 14;
@@ -102,7 +106,7 @@
             // tbxPosicion
             // 
             this.tbxPosicion.Enabled = false;
-            this.tbxPosicion.Location = new System.Drawing.Point(118, 157);
+            this.tbxPosicion.Location = new System.Drawing.Point(118, 205);
             this.tbxPosicion.Name = "tbxPosicion";
             this.tbxPosicion.Size = new System.Drawing.Size(160, 20);
             this.tbxPosicion.TabIndex = 15;
@@ -110,7 +114,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 131);
+            this.label5.Location = new System.Drawing.Point(64, 179);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 12;
@@ -119,7 +123,7 @@
             // tbxFecha
             // 
             this.tbxFecha.Enabled = false;
-            this.tbxFecha.Location = new System.Drawing.Point(118, 131);
+            this.tbxFecha.Location = new System.Drawing.Point(118, 179);
             this.tbxFecha.Name = "tbxFecha";
             this.tbxFecha.Size = new System.Drawing.Size(160, 20);
             this.tbxFecha.TabIndex = 13;
@@ -127,7 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(64, 105);
+            this.label4.Location = new System.Drawing.Point(64, 153);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 10;
@@ -136,7 +140,7 @@
             // tbxPrecio
             // 
             this.tbxPrecio.Enabled = false;
-            this.tbxPrecio.Location = new System.Drawing.Point(118, 105);
+            this.tbxPrecio.Location = new System.Drawing.Point(118, 153);
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(160, 20);
             this.tbxPrecio.TabIndex = 11;
@@ -144,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(71, 79);
+            this.label3.Location = new System.Drawing.Point(71, 127);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 8;
@@ -153,10 +157,20 @@
             // tbxTalla
             // 
             this.tbxTalla.Enabled = false;
-            this.tbxTalla.Location = new System.Drawing.Point(118, 79);
+            this.tbxTalla.Location = new System.Drawing.Point(118, 127);
             this.tbxTalla.Name = "tbxTalla";
             this.tbxTalla.Size = new System.Drawing.Size(160, 20);
             this.tbxTalla.TabIndex = 9;
+            // 
+            // pbxImg
+            // 
+            this.pbxImg.Image = global::CalzadoProyecto.Properties.Resources.ls_incognito;
+            this.pbxImg.Location = new System.Drawing.Point(147, 19);
+            this.pbxImg.Name = "pbxImg";
+            this.pbxImg.Size = new System.Drawing.Size(107, 76);
+            this.pbxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImg.TabIndex = 16;
+            this.pbxImg.TabStop = false;
             // 
             // GUIVistaPrevia
             // 
@@ -166,10 +180,10 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Name = "GUIVistaPrevia";
-            this.Text = "Calzado";
             this.Load += new System.EventHandler(this.GUIVistaPrevia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +203,6 @@
         private System.Windows.Forms.TextBox tbxPrecio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbxTalla;
+        private System.Windows.Forms.PictureBox pbxImg;
     }
 }

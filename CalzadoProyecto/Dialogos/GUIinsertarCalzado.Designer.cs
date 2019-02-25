@@ -279,7 +279,6 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "GUIinsertarCalzado";
-            this.Text = "Insertar Calzado";
             this.Load += new System.EventHandler(this.GUIinsertarCalzado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

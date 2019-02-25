@@ -36,8 +36,6 @@
             this.insertarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.calzadoPorNombreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.actualizarCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarListaDeCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +54,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(300, 31);
             this.label1.TabIndex = 1;
-            this.label1.Text = "INGENIERIA DE SISTEMAS";
+            this.label1.Text = "INGENIERÍA DE SISTEMAS";
             // 
             // menuStrip1
             // 
@@ -81,7 +79,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -99,42 +97,28 @@
             // insertarToolStripMenuItem
             // 
             this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
-            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.insertarToolStripMenuItem.Text = "Insertar Calzado";
             this.insertarToolStripMenuItem.Click += new System.EventHandler(this.insertarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.eliminarToolStripMenuItem.Text = "Eliminar Calzado";
             this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
             // 
             // buscarToolStripMenuItem
             // 
-            this.buscarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.calzadoPorNombreToolStripMenuItem,
-            this.actualizarCalzadoToolStripMenuItem});
             this.buscarToolStripMenuItem.Name = "buscarToolStripMenuItem";
-            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.buscarToolStripMenuItem.Text = "Buscar";
-            // 
-            // calzadoPorNombreToolStripMenuItem
-            // 
-            this.calzadoPorNombreToolStripMenuItem.Name = "calzadoPorNombreToolStripMenuItem";
-            this.calzadoPorNombreToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.calzadoPorNombreToolStripMenuItem.Text = "Calzado por nombre";
-            // 
-            // actualizarCalzadoToolStripMenuItem
-            // 
-            this.actualizarCalzadoToolStripMenuItem.Name = "actualizarCalzadoToolStripMenuItem";
-            this.actualizarCalzadoToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.actualizarCalzadoToolStripMenuItem.Text = "Actualizar calzado";
+            this.buscarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.buscarToolStripMenuItem.Text = "Buscar/Actualizar Calzado";
+            this.buscarToolStripMenuItem.Click += new System.EventHandler(this.buscarToolStripMenuItem_Click);
             // 
             // mostrarListaDeCalzadoToolStripMenuItem
             // 
             this.mostrarListaDeCalzadoToolStripMenuItem.Name = "mostrarListaDeCalzadoToolStripMenuItem";
-            this.mostrarListaDeCalzadoToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.mostrarListaDeCalzadoToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.mostrarListaDeCalzadoToolStripMenuItem.Text = "Mostrar lista de calzado";
             this.mostrarListaDeCalzadoToolStripMenuItem.Click += new System.EventHandler(this.mostrarListaDeCalzadoToolStripMenuItem_Click);
             // 
@@ -149,7 +133,7 @@
             // creditosToolStripMenuItem
             // 
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
-            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.creditosToolStripMenuItem.Text = "Creditos";
             this.creditosToolStripMenuItem.Click += new System.EventHandler(this.creditosToolStripMenuItem_Click);
             // 
@@ -184,7 +168,6 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "VentanaPrincipal";
-            this.Text = "LISTA DE CALZADO";
             this.Load += new System.EventHandler(this.VentanaPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -208,8 +191,6 @@
         private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem buscarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem calzadoPorNombreToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actualizarCalzadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mostrarListaDeCalzadoToolStripMenuItem;
     }
 }

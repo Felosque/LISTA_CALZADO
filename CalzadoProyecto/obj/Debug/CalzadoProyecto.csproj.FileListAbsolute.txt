@@ -12,3 +12,4 @@ D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\Calzado
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Dialogos.GUIeliminarCalzado.resources
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Dialogos.GUIListaCalzado.resources
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Dialogos.GUIVistaPrevia.resources
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.Dialogos.GUIbuscarCalzado.resources

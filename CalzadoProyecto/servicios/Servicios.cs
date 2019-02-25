@@ -40,7 +40,7 @@ namespace CalzadoProyecto.servicios
 
         public static void adicionarCalzadoEnMedio(Calzado pCalzado, int pNumero)
         {
-            Calzado recorrido = darCalzadoPorPosicion(pNumero);
+            Calzado recorrido = buscarCalzadoPorPosicion(pNumero);
             Calzado tmp = recorrido.darSiguiente();
             recorrido.cambiarSiguiente(pCalzado);
             pCalzado.cambiarSiguiente(tmp);
@@ -60,8 +60,8 @@ namespace CalzadoProyecto.servicios
 
         public static void eliminarCalzadoEnMedio(int pNum)
         {
-            Calzado eliminar = darCalzadoPorPosicion(pNum);
-            Calzado tmp = darCalzadoPorPosicion(pNum - 1);
+            Calzado eliminar = buscarCalzadoPorPosicion(pNum);
+            Calzado tmp = buscarCalzadoPorPosicion(pNum - 1);
             tmp.cambiarSiguiente(eliminar.darSiguiente());
             eliminar.cambiarSiguiente(null);
         }
@@ -74,7 +74,7 @@ namespace CalzadoProyecto.servicios
                 {
                     cabecera = null;
                 }
-                Calzado eliminar = darCalzadoPorPosicion(darTamanoLista() - 2);
+                Calzado eliminar = buscarCalzadoPorPosicion(darTamanoLista() - 2);
                 eliminar.cambiarSiguiente(null);
             }
             else
@@ -95,7 +95,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista del calzado esta vacia!");
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder ver el ultimo calzado.");
             }
             return recorrido;
         }
@@ -112,7 +112,7 @@ namespace CalzadoProyecto.servicios
             return sumatoria;
         }
 
-        public static Calzado darCalzadoPorPosicion(int pNum)
+        public static Calzado buscarCalzadoPorPosicion(int pNum)
         {
             Calzado recorrido = cabecera;
             while(recorrido != null && pNum > 0)
@@ -125,6 +125,133 @@ namespace CalzadoProyecto.servicios
                 throw new MensajeExepcion("¡No se pudo encontrar el calzado en la posición especificada!");
             }
             return recorrido;
+        }
+
+        public static Calzado buscarCalzadoPorTipo(string pTipo)
+        {
+            Calzado recorrido = cabecera;
+            
+            if (recorrido != null)
+            {
+                Boolean existe = false;
+                while (recorrido != null && !existe)
+                {
+                    if (recorrido.darTipo().Equals(pTipo)){
+                        existe = true;
+                    }
+                    else{
+                        recorrido = recorrido.darSiguiente();
+                    }
+                }
+            }
+            else{
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+            }
+            if(recorrido == null)
+            {
+                throw new MensajeExepcion("¡No se pudo encontrar el calzado por el tipo asignado!");
+            }
+            return recorrido;
+        }
+
+        public static Calzado buscarCalzadoPorTalla(int pTalla)
+        {
+            Calzado recorrido = cabecera;
+
+            if (recorrido != null)
+            {
+                Boolean existe = false;
+                while (recorrido != null && !existe)
+                {
+                    if (recorrido.darTalla() == pTalla)
+                    {
+                        existe = true;
+                    }
+                    else
+                    {
+                        recorrido = recorrido.darSiguiente();
+                    }
+                }
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+            }
+            if (recorrido == null)
+            {
+                throw new MensajeExepcion("¡No se pudo encontrar el calzado por la talla asignada!");
+            }
+            return recorrido;
+        }
+
+        public static Calzado buscarCalzadoPorPrecio(int pPrecio)
+        {
+            Calzado recorrido = cabecera;
+
+            if (recorrido != null)
+            {
+                Boolean existe = false;
+                while (recorrido != null && !existe)
+                {
+                    if (recorrido.darPrecio() == pPrecio)
+                    {
+                        existe = true;
+                    }
+                    else
+                    {
+                        recorrido = recorrido.darSiguiente();
+                    }
+                }
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+            }
+            if (recorrido == null)
+            {
+                throw new MensajeExepcion("¡No se pudo encontrar el calzado por la precio asignado!");
+            }
+            return recorrido;
+        }
+
+        public static Calzado buscarCalzadoPorFecha(DateTime pFecha)
+        {
+            Calzado recorrido = cabecera;
+
+            if (recorrido != null)
+            {
+                Boolean existe = false;
+                while (recorrido != null && !existe)
+                {
+                    if (recorrido.darFechaDeCompra().Day == pFecha.Day && 
+                        recorrido.darFechaDeCompra().Month == pFecha.Month
+                        && recorrido.darFechaDeCompra().Year == pFecha.Year)
+                    {
+                        existe = true;
+                    }
+                    else
+                    {
+                        recorrido = recorrido.darSiguiente();
+                    }
+                }
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+            }
+            if (recorrido == null)
+            {
+                throw new MensajeExepcion("¡No se pudo encontrar el calzado por la fecha asignada!");
+            }
+            return recorrido;
+        }
+
+        public static void modificarCalzados(Calzado CalzadoModificar, Calzado pCalzado)
+        {
+            CalzadoModificar.cambiarFechaDeCompra(pCalzado.darFechaDeCompra());
+            CalzadoModificar.cambiarPrecio(pCalzado.darPrecio());
+            CalzadoModificar.cambiarTalla(pCalzado.darTalla());
+            CalzadoModificar.cambiarTipo(pCalzado.darTipo());
         }
 
         public static void verCalzados()

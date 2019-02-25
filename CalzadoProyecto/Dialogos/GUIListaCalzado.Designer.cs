@@ -114,7 +114,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dtaDatos);
             this.Name = "GUIListaCalzado";
-            this.Text = "LISTA DE CALZADO";
             this.Load += new System.EventHandler(this.GUIListaCalzado_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtaDatos)).EndInit();
             this.ResumeLayout(false);

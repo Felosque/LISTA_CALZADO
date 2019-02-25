@@ -38,10 +38,10 @@ namespace CalzadoProyecto.Dialogos
                 {
                     dtaDatos.Rows.Add();
                     dtaDatos.Rows[i].Cells[0].Value = i;
-                    dtaDatos.Rows[i].Cells[1].Value = Servicios.darCalzadoPorPosicion(i).darTipo();
-                    dtaDatos.Rows[i].Cells[2].Value = Servicios.darCalzadoPorPosicion(i).darTalla();
-                    dtaDatos.Rows[i].Cells[3].Value = Servicios.darCalzadoPorPosicion(i).darPrecio();
-                    dtaDatos.Rows[i].Cells[4].Value = Servicios.darCalzadoPorPosicion(i).darFechaDeCompra();
+                    dtaDatos.Rows[i].Cells[1].Value = Servicios.buscarCalzadoPorPosicion(i).darTipo();
+                    dtaDatos.Rows[i].Cells[2].Value = Servicios.buscarCalzadoPorPosicion(i).darTalla();
+                    dtaDatos.Rows[i].Cells[3].Value = Servicios.buscarCalzadoPorPosicion(i).darPrecio();
+                    dtaDatos.Rows[i].Cells[4].Value = Servicios.buscarCalzadoPorPosicion(i).darFechaDeCompra();
                 }
             }
             else
