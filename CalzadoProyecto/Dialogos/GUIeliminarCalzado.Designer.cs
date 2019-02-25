@@ -34,7 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtPosicion = new System.Windows.Forms.Label();
             this.SelectorCalzado = new System.Windows.Forms.ComboBox();
-            this.msgError = new System.Windows.Forms.Label();
             this.btEliminarCalzado = new System.Windows.Forms.Button();
             this.btVistaPrevia = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -112,20 +111,9 @@
             this.SelectorCalzado.TabIndex = 7;
             this.SelectorCalzado.SelectedIndexChanged += new System.EventHandler(this.SelectorCalzado_SelectedIndexChanged);
             // 
-            // msgError
-            // 
-            this.msgError.AutoSize = true;
-            this.msgError.ForeColor = System.Drawing.Color.DarkRed;
-            this.msgError.Location = new System.Drawing.Point(40, 211);
-            this.msgError.Name = "msgError";
-            this.msgError.Size = new System.Drawing.Size(221, 13);
-            this.msgError.TabIndex = 8;
-            this.msgError.Text = "Error: no se inserto nada en el tipo de zapato.";
-            this.msgError.Visible = false;
-            // 
             // btEliminarCalzado
             // 
-            this.btEliminarCalzado.Location = new System.Drawing.Point(138, 316);
+            this.btEliminarCalzado.Location = new System.Drawing.Point(138, 282);
             this.btEliminarCalzado.Name = "btEliminarCalzado";
             this.btEliminarCalzado.Size = new System.Drawing.Size(145, 34);
             this.btEliminarCalzado.TabIndex = 7;
@@ -135,7 +123,7 @@
             // 
             // btVistaPrevia
             // 
-            this.btVistaPrevia.Location = new System.Drawing.Point(138, 265);
+            this.btVistaPrevia.Location = new System.Drawing.Point(138, 231);
             this.btVistaPrevia.Name = "btVistaPrevia";
             this.btVistaPrevia.Size = new System.Drawing.Size(145, 34);
             this.btVistaPrevia.TabIndex = 9;
@@ -147,9 +135,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 412);
+            this.ClientSize = new System.Drawing.Size(442, 354);
             this.Controls.Add(this.btVistaPrevia);
-            this.Controls.Add(this.msgError);
             this.Controls.Add(this.btEliminarCalzado);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
@@ -168,7 +155,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox SelectorCalzado;
-        private System.Windows.Forms.Label msgError;
         private System.Windows.Forms.Button btEliminarCalzado;
         private System.Windows.Forms.NumericUpDown tbxPosicion;
         private System.Windows.Forms.Label txtPosicion;

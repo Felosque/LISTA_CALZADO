@@ -41,7 +41,7 @@ namespace CalzadoProyecto.servicios
                 tipo = pTipo;
             }
             else{
-                throw new MensajeExepcion("¡Debe haber algun tipo de calzado especificado!");
+                throw new MensajeExepcion("¡Debe haber algún tipo de calzado especificado!");
             }
         }
 
@@ -95,7 +95,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new FechaExeption("¡No se puede comprar un calzado un día despues al de hoy!");
+                throw new FechaExeption("¡No se puede comprar un calzado un día después al de hoy!");
             }
         }
 

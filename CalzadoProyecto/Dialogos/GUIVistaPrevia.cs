@@ -31,21 +31,25 @@ namespace CalzadoProyecto.Dialogos
             tbxTalla.Text = calzado.darTalla().ToString();
             tbxTipo.Text = calzado.darTipo().ToString();
 
-            if (tbxTipo.Equals("Botas"))
+            if (calzado.darTipo().Equals("Botas"))
             {
-                pbxImg.Image = Image.FromFile(Path.Combine(Application.StartupPath, "Resources//logo2.png"));
+                pbxImg.Image = Properties.Resources.ls_Botas;
+                pbxImg.Refresh();
             }
-            else if(tbxTipo.Equals("Chanclas"))
+            else if(calzado.darTipo().Equals("Chanclas"))
             {
-                pbxImg.Image = Image.FromFile("ls-Chancla.jpeg");
+                pbxImg.Image = Properties.Resources.ls_Chancla;
+                pbxImg.Refresh();
             }
-            else if (tbxTipo.Equals("Tacones"))
+            else if (calzado.darTipo().Equals("Tacones"))
             {
-                pbxImg.Image = Image.FromFile("ls-Tacon.jpeg");
+                pbxImg.Image = Properties.Resources.ls_Tacon;
+                pbxImg.Refresh();
             }
-            else if (tbxTipo.Equals("Deportivos"))
+            else if (calzado.darTipo().Equals("Deportivos"))
             {
-                pbxImg.Image = Image.FromFile("logo2.png");
+                pbxImg.Image = Properties.Resources.ls_Deportivos;
+                pbxImg.Refresh();
             }
         }
 

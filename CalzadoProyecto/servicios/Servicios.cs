@@ -11,7 +11,6 @@ namespace CalzadoProyecto.servicios
     {
         private static Calzado cabecera;
 
-
         public static Calzado darCabecera()
         {
             return cabecera;
@@ -40,10 +39,17 @@ namespace CalzadoProyecto.servicios
 
         public static void adicionarCalzadoEnMedio(Calzado pCalzado, int pNumero)
         {
-            Calzado recorrido = buscarCalzadoPorPosicion(pNumero);
-            Calzado tmp = recorrido.darSiguiente();
-            recorrido.cambiarSiguiente(pCalzado);
-            pCalzado.cambiarSiguiente(tmp);
+            if (cabecera != null)
+            {
+                Calzado recorrido = buscarCalzadoPorPosicion(pNumero);
+                Calzado tmp = recorrido.darSiguiente();
+                recorrido.cambiarSiguiente(pCalzado);
+                pCalzado.cambiarSiguiente(tmp);
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar uno en el inicio para poder adicionar en el medio");
+            }
         }
 
         public static void eliminarCalzadoAlInicio()
@@ -54,16 +60,23 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder eliminar al inicio.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder eliminar al inicio.");
             }
         }
 
         public static void eliminarCalzadoEnMedio(int pNum)
         {
-            Calzado eliminar = buscarCalzadoPorPosicion(pNum);
-            Calzado tmp = buscarCalzadoPorPosicion(pNum - 1);
-            tmp.cambiarSiguiente(eliminar.darSiguiente());
-            eliminar.cambiarSiguiente(null);
+            if (cabecera != null)
+            {
+                Calzado eliminar = buscarCalzadoPorPosicion(pNum);
+                Calzado tmp = buscarCalzadoPorPosicion(pNum - 1);
+                tmp.cambiarSiguiente(eliminar.darSiguiente());
+                eliminar.cambiarSiguiente(null);
+            }
+            else
+            {
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder eliminar al final.");
+            }
         }
 
         public static void eliminarCalzadoFinal()
@@ -79,7 +92,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder eliminar al final.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder eliminar al final.");
             }
         }
 
@@ -95,7 +108,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder ver el ultimo calzado.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder ver el ultimo calzado.");
             }
             return recorrido;
         }
@@ -145,7 +158,7 @@ namespace CalzadoProyecto.servicios
                 }
             }
             else{
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder buscar algun calzado.");
             }
             if(recorrido == null)
             {
@@ -175,7 +188,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder buscar algun calzado.");
             }
             if (recorrido == null)
             {
@@ -205,7 +218,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder buscar algun calzado.");
             }
             if (recorrido == null)
             {
@@ -237,7 +250,7 @@ namespace CalzadoProyecto.servicios
             }
             else
             {
-                throw new MensajeExepcion("¡La lista de calzado esta vacia!\n\nPrimero debe insertar para poder buscar algun calzado.");
+                throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder buscar algun calzado.");
             }
             if (recorrido == null)
             {

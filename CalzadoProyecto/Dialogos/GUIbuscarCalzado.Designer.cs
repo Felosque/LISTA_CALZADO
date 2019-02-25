@@ -38,6 +38,9 @@
             this.SelectorCalzadoB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grpResultados = new System.Windows.Forms.GroupBox();
+            this.btnModificarCalzado = new System.Windows.Forms.Button();
+            this.btnConfirmar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.tbxTipoC = new System.Windows.Forms.ComboBox();
             this.tbxPrecioC = new System.Windows.Forms.NumericUpDown();
             this.tbxTallaC = new System.Windows.Forms.NumericUpDown();
@@ -46,9 +49,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnModificarCalzado = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).BeginInit();
             this.grpResultados.SuspendLayout();
@@ -70,7 +70,7 @@
             this.groupBox1.Size = new System.Drawing.Size(383, 143);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "¿Cómo deberia buscar el calzado?";
+            this.groupBox1.Text = "¿Cómo debería buscar el calzado?";
             // 
             // btnBuscar
             // 
@@ -185,6 +185,41 @@
             this.grpResultados.TabStop = false;
             this.grpResultados.Text = "Resultados de busqueda";
             this.grpResultados.Visible = false;
+            // 
+            // btnModificarCalzado
+            // 
+            this.btnModificarCalzado.Location = new System.Drawing.Point(111, 153);
+            this.btnModificarCalzado.Name = "btnModificarCalzado";
+            this.btnModificarCalzado.Size = new System.Drawing.Size(166, 34);
+            this.btnModificarCalzado.TabIndex = 10;
+            this.btnModificarCalzado.Text = "Modificar Calzado";
+            this.btnModificarCalzado.UseVisualStyleBackColor = true;
+            this.btnModificarCalzado.Visible = false;
+            this.btnModificarCalzado.Click += new System.EventHandler(this.btnModificarCalzado_Click);
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.ForeColor = System.Drawing.Color.Green;
+            this.btnConfirmar.Location = new System.Drawing.Point(209, 153);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(125, 34);
+            this.btnConfirmar.TabIndex = 20;
+            this.btnConfirmar.Text = "Modificar Calzado";
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Visible = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
+            this.btnCancelar.Location = new System.Drawing.Point(60, 153);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
+            this.btnCancelar.TabIndex = 11;
+            this.btnCancelar.Text = "Cancelar Modificacion";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tbxTipoC
             // 
@@ -301,41 +336,6 @@
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Tipo:";
-            // 
-            // btnModificarCalzado
-            // 
-            this.btnModificarCalzado.Location = new System.Drawing.Point(111, 153);
-            this.btnModificarCalzado.Name = "btnModificarCalzado";
-            this.btnModificarCalzado.Size = new System.Drawing.Size(166, 34);
-            this.btnModificarCalzado.TabIndex = 10;
-            this.btnModificarCalzado.Text = "Modificar Calzado";
-            this.btnModificarCalzado.UseVisualStyleBackColor = true;
-            this.btnModificarCalzado.Visible = false;
-            this.btnModificarCalzado.Click += new System.EventHandler(this.btnModificarCalzado_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Location = new System.Drawing.Point(60, 153);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar Modificacion";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Visible = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.ForeColor = System.Drawing.Color.Green;
-            this.btnConfirmar.Location = new System.Drawing.Point(209, 153);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(125, 34);
-            this.btnConfirmar.TabIndex = 20;
-            this.btnConfirmar.Text = "Modificar Calzado";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Visible = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // GUIbuscarCalzado
             // 

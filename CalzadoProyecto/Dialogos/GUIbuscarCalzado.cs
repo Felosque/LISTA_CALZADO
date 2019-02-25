@@ -173,8 +173,8 @@ namespace CalzadoProyecto.Dialogos
                 DateTime fecha = dteFechaC.Value;
                 calzadoModificado = new Calzado(tipo, talla, precio, fecha);
                 MessageBox.Show("¡Se ha modificado el calzado correctamente!\n\n"+
-                                "ANTERIOR CALZADO\nTipo: "+calzadoBuscado.darTipo()+"\nPrecio: "+calzadoBuscado.darPrecio()+"\nTalla: "+calzadoBuscado.darTalla()+"\nFecha: "+calzadoBuscado.darFechaDeCompra()+"\n\n"+
-                                "ACTUAL CALZADO\nTipo: " + calzadoModificado.darTipo() + "\nPrecio: " + calzadoModificado.darPrecio() + "\nTalla: " + calzadoModificado.darTalla() + "\nFecha: " + calzadoModificado.darFechaDeCompra());
+                                "---------ANTERIOR CALZADO\n\nTipo: "+calzadoBuscado.darTipo()+"\nPrecio: "+calzadoBuscado.darPrecio()+"\nTalla: "+calzadoBuscado.darTalla()+"\nFecha: "+calzadoBuscado.darFechaDeCompra()+"\n\n"+
+                                "---------ACTUAL CALZADO\n\nTipo: " + calzadoModificado.darTipo() + "\nPrecio: " + calzadoModificado.darPrecio() + "\nTalla: " + calzadoModificado.darTalla() + "\nFecha: " + calzadoModificado.darFechaDeCompra());
                 Servicios.modificarCalzados(calzadoBuscado, calzadoModificado);
                 //Activamos los botones de busquedas
                 activarBotonesDeBusqueda(true);
@@ -189,12 +189,10 @@ namespace CalzadoProyecto.Dialogos
             catch (MensajeExepcion pr)
             {
                 MessageBox.Show(pr.darExepcion());
-                activarBotonesDeBusqueda(true);
             }
             catch (FechaExeption pi)
             {
                 MessageBox.Show(pi.darExepcion());
-                activarBotonesDeBusqueda(true);
             }
         }
 

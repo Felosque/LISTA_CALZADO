@@ -87,5 +87,29 @@ namespace CalzadoProyecto.Dialogos
                 MessageBox.Show(fa.darExepcion());
             } 
         }
+
+        private void tbxTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbxTipo.SelectedIndex == 0)
+            {
+                pbxImg.Image = Properties.Resources.ls_Chancla;
+                pbxImg.Refresh();
+            }
+            else if (tbxTipo.SelectedIndex == 1)
+            {
+                pbxImg.Image = Properties.Resources.ls_Botas;
+                pbxImg.Refresh();
+            }
+            else if (tbxTipo.SelectedIndex == 2)
+            {
+                pbxImg.Image = Properties.Resources.ls_Tacon;
+                pbxImg.Refresh();
+            }
+            else if (tbxTipo.SelectedIndex == 3)
+            {
+                pbxImg.Image = Properties.Resources.ls_Deportivos;
+                pbxImg.Refresh();
+            }
+        }
     }
 }

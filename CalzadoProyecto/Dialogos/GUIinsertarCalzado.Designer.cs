@@ -45,11 +45,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.msgError = new System.Windows.Forms.Label();
+            this.pbxImg = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPosicion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -61,7 +63,7 @@
             this.groupBox1.Size = new System.Drawing.Size(391, 45);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "¿Donde debo poner el nuevo calzado?";
+            this.groupBox1.Text = "¿Dónde debo poner el nuevo calzado?";
             // 
             // label1
             // 
@@ -88,6 +90,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pbxImg);
             this.groupBox2.Controls.Add(this.tbxTipo);
             this.groupBox2.Controls.Add(this.tbxPosicion);
             this.groupBox2.Controls.Add(this.tbxPrecio);
@@ -115,14 +118,15 @@
             "Botas",
             "Tacones",
             "Deportivos"});
-            this.tbxTipo.Location = new System.Drawing.Point(119, 30);
+            this.tbxTipo.Location = new System.Drawing.Point(79, 31);
             this.tbxTipo.Name = "tbxTipo";
             this.tbxTipo.Size = new System.Drawing.Size(200, 21);
             this.tbxTipo.TabIndex = 19;
+            this.tbxTipo.SelectedIndexChanged += new System.EventHandler(this.tbxTipo_SelectedIndexChanged);
             // 
             // tbxPosicion
             // 
-            this.tbxPosicion.Location = new System.Drawing.Point(119, 144);
+            this.tbxPosicion.Location = new System.Drawing.Point(79, 145);
             this.tbxPosicion.Maximum = new decimal(new int[] {
             1000000000,
             0,
@@ -139,7 +143,7 @@
             0,
             0,
             0});
-            this.tbxPrecio.Location = new System.Drawing.Point(119, 87);
+            this.tbxPrecio.Location = new System.Drawing.Point(79, 88);
             this.tbxPrecio.Maximum = new decimal(new int[] {
             -727379968,
             232,
@@ -161,7 +165,7 @@
             // 
             // tbxTalla
             // 
-            this.tbxTalla.Location = new System.Drawing.Point(119, 59);
+            this.tbxTalla.Location = new System.Drawing.Point(79, 60);
             this.tbxTalla.Maximum = new decimal(new int[] {
             50,
             0,
@@ -184,7 +188,7 @@
             // txtPosicion
             // 
             this.txtPosicion.AutoSize = true;
-            this.txtPosicion.Location = new System.Drawing.Point(56, 144);
+            this.txtPosicion.Location = new System.Drawing.Point(16, 145);
             this.txtPosicion.Name = "txtPosicion";
             this.txtPosicion.Size = new System.Drawing.Size(50, 13);
             this.txtPosicion.TabIndex = 14;
@@ -193,7 +197,7 @@
             // 
             // dteFecha
             // 
-            this.dteFecha.Location = new System.Drawing.Point(119, 116);
+            this.dteFecha.Location = new System.Drawing.Point(79, 117);
             this.dteFecha.Name = "dteFecha";
             this.dteFecha.Size = new System.Drawing.Size(200, 20);
             this.dteFecha.TabIndex = 10;
@@ -201,7 +205,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(66, 116);
+            this.label6.Location = new System.Drawing.Point(26, 117);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 9;
@@ -210,7 +214,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 87);
+            this.label5.Location = new System.Drawing.Point(26, 88);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 8;
@@ -220,7 +224,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(73, 59);
+            this.label4.Location = new System.Drawing.Point(33, 60);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 7;
@@ -230,7 +234,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(75, 30);
+            this.label3.Location = new System.Drawing.Point(35, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 6;
@@ -241,11 +245,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Black", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label2.Location = new System.Drawing.Point(56, 23);
+            this.label2.Location = new System.Drawing.Point(75, 27);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(324, 38);
+            this.label2.Size = new System.Drawing.Size(287, 38);
             this.label2.TabIndex = 4;
-            this.label2.Text = "INSERTAR CALZADO";
+            this.label2.Text = "AÑADIR CALZADO";
             // 
             // button1
             // 
@@ -253,7 +257,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(145, 34);
             this.button1.TabIndex = 5;
-            this.button1.Text = "INSERTAR CALZADO";
+            this.button1.Text = "Añadir Calzado";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -265,8 +269,18 @@
             this.msgError.Name = "msgError";
             this.msgError.Size = new System.Drawing.Size(378, 13);
             this.msgError.TabIndex = 6;
-            this.msgError.Text = "Nota: Se inserta el calzado a la posición siguiente de la recibida por parametro." +
+            this.msgError.Text = "Nota: Se inserta el calzado a la posición siguiente de la recibida por parámetro." +
     "";
+            // 
+            // pbxImg
+            // 
+            this.pbxImg.Image = global::CalzadoProyecto.Properties.Resources.ls_incognito;
+            this.pbxImg.Location = new System.Drawing.Point(285, 55);
+            this.pbxImg.Name = "pbxImg";
+            this.pbxImg.Size = new System.Drawing.Size(100, 82);
+            this.pbxImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbxImg.TabIndex = 7;
+            this.pbxImg.TabStop = false;
             // 
             // GUIinsertarCalzado
             // 
@@ -287,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbxPosicion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,5 +326,6 @@
         private System.Windows.Forms.NumericUpDown tbxPosicion;
         private System.Windows.Forms.Label msgError;
         private System.Windows.Forms.ComboBox tbxTipo;
+        private System.Windows.Forms.PictureBox pbxImg;
     }
 }

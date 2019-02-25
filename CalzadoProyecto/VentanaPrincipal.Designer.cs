@@ -98,7 +98,7 @@
             // 
             this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
             this.insertarToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.insertarToolStripMenuItem.Text = "Insertar Calzado";
+            this.insertarToolStripMenuItem.Text = "Añadir Calzado";
             this.insertarToolStripMenuItem.Click += new System.EventHandler(this.insertarToolStripMenuItem_Click);
             // 
             // eliminarToolStripMenuItem
