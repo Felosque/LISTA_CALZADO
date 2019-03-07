@@ -1,6 +1,7 @@
 ﻿using CalzadoProyecto.Exepciones;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -274,6 +275,40 @@ namespace CalzadoProyecto.servicios
             {
                 Console.WriteLine("Tipo: " + recorrido.darTipo() + " Talla: " + recorrido.darTalla() + " Precio: " + recorrido.darPrecio() + " Fecha: " + recorrido.darFechaDeCompra());
                 recorrido = recorrido.darSiguiente();
+            }
+        }
+
+        public static void grabarCalzados(String pRuta)
+        {
+
+            if (pRuta != null && pRuta.Length != 0)
+            {
+                Calzado recorrido = cabecera;
+                if (recorrido != null)
+                {
+                    FileStream archivo;
+                    archivo = new FileStream(pRuta, FileMode.Create);
+                    archivo.Seek(0, SeekOrigin.Begin);
+
+                    while (recorrido != null)
+                    {
+                        archivo.Write(BitConverter.GetBytes(recorrido.darTalla()), 0, 4);
+                        archivo.Write(BitConverter.GetBytes(recorrido.darPrecio()), 0, 8);
+                        archivo.Write(Encoding.ASCII.GetBytes(recorrido.darTipo()), 0, recorrido.darTipo().Length);
+                        archivo.Write(Encoding.ASCII.GetBytes(Convert.ToString(recorrido.darFechaDeCompra())), 0, Convert.ToString(recorrido.darFechaDeCompra()).Length);
+                        recorrido = recorrido.darSiguiente();
+                    }
+                    archivo.Close();
+                }
+                else
+                {
+                    throw new MensajeExepcion("¡La lista de calzado esta vacía!\n\nPrimero debe insertar para poder ver el ultimo calzado.");
+                }
+                
+            }
+            else
+            {
+                throw new MensajeExepcion("No se selecciono ningún archivo.");
             }
         }
 

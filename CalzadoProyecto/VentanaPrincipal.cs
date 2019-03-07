@@ -1,4 +1,6 @@
 ﻿using CalzadoProyecto.Dialogos;
+using CalzadoProyecto.Exepciones;
+using CalzadoProyecto.servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -57,5 +59,22 @@ namespace CalzadoProyecto
             MessageBox.Show("Proyecto creado por: \n\n-Andres Felipe Novoa\n-Luis Felipe Londoño Medina.\n\n© Todos los derechos reservados ©");
         }
 
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            rutaGuardar.FilterIndex = 1;
+            rutaGuardar.Multiselect = false;
+            rutaGuardar.ShowDialog();
+
+            try
+            {
+                String ruta = rutaGuardar.FileName;
+                Servicios.grabarCalzados(ruta);
+            }catch(MensajeExepcion ef)
+            {
+                MessageBox.Show(ef.darExepcion());
+            }
+
+        }
     }
 }
