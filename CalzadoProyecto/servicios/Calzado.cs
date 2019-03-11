@@ -9,6 +9,7 @@ namespace CalzadoProyecto.servicios
 {
     class Calzado
     {
+        private String estado;
 
         private String tipo;
 
@@ -26,12 +27,23 @@ namespace CalzadoProyecto.servicios
             cambiarTalla(pTalla);
             cambiarPrecio(pPrecio);
             cambiarFechaDeCompra(pFecha);
+            estado = Constantes.ACTIVO;
             sgte = null;
         }
 
         public String darTipo()
         {
             return tipo;
+        }
+
+        public void cambiarEstado(String pEstado)
+        {
+            estado = pEstado;
+        }
+
+        public String darEstado()
+        {
+            return estado;
         }
 
         public void cambiarTipo(String pTipo)

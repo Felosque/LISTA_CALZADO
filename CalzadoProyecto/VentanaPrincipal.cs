@@ -69,12 +69,30 @@ namespace CalzadoProyecto
             try
             {
                 String ruta = rutaGuardar.FileName;
-                Servicios.grabarCalzados(ruta);
+                Servicios.guardarCalzados(ruta);
             }catch(MensajeExepcion ef)
             {
                 MessageBox.Show(ef.darExepcion());
             }
 
+        }
+
+        private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
+            rutaGuardar.FilterIndex = 1;
+            rutaGuardar.Multiselect = false;
+            rutaGuardar.ShowDialog();
+
+            try
+            {
+                String ruta = rutaGuardar.FileName;
+                Servicios.leerCalzado(ruta);
+            }
+            catch (MensajeExepcion ef)
+            {
+                MessageBox.Show(ef.darExepcion());
+            }
         }
     }
 }

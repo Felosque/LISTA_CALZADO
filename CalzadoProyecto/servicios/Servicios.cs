@@ -278,7 +278,7 @@ namespace CalzadoProyecto.servicios
             }
         }
 
-        public static void grabarCalzados(String pRuta)
+        public static void guardarCalzados(String pRuta)
         {
 
             if (pRuta != null && pRuta.Length != 0)
@@ -287,17 +287,20 @@ namespace CalzadoProyecto.servicios
                 if (recorrido != null)
                 {
                     FileStream archivo;
-                    archivo = new FileStream(pRuta, FileMode.Create);
-                    archivo.Seek(0, SeekOrigin.Begin);
+                    archivo = new FileStream(pRuta, FileMode.Append);
+                    BinaryWriter br = new BinaryWriter(archivo, Encoding.UTF8);
 
                     while (recorrido != null)
                     {
-                        archivo.Write(BitConverter.GetBytes(recorrido.darTalla()), 0, 4);
-                        archivo.Write(BitConverter.GetBytes(recorrido.darPrecio()), 0, 8);
-                        archivo.Write(Encoding.ASCII.GetBytes(recorrido.darTipo()), 0, recorrido.darTipo().Length);
-                        archivo.Write(Encoding.ASCII.GetBytes(Convert.ToString(recorrido.darFechaDeCompra())), 0, Convert.ToString(recorrido.darFechaDeCompra()).Length);
+                        br.Write(recorrido.darTipo());
+                        br.Write(recorrido.darPrecio());
+                        br.Write(recorrido.darTalla());
+                        br.Write(Convert.ToString(recorrido.darFechaDeCompra()));
+                        br.Write(recorrido.darEstado());
                         recorrido = recorrido.darSiguiente();
                     }
+
+                    br.Close();
                     archivo.Close();
                 }
                 else
@@ -312,5 +315,37 @@ namespace CalzadoProyecto.servicios
             }
         }
 
+        public static void leerCalzado(String pRuta)
+        {
+            if (pRuta != null && pRuta.Length != 0)
+            {
+                int talla;
+                double precio;
+                String tipo, estado, fecha, cad = "";
+
+                FileStream archivo;
+                BinaryReader binaryReader;
+                archivo = new FileStream(pRuta, FileMode.Open);
+                binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+                while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+                {
+                    tipo = binaryReader.ReadString();
+                    precio = binaryReader.ReadDouble();
+                    talla = binaryReader.ReadInt32();
+                    fecha = binaryReader.ReadString();
+                    estado = binaryReader.ReadString();
+                    cad = cad + Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
+                }
+
+                binaryReader.Close();
+                archivo.Close();
+                Console.WriteLine(cad);
+            }
+            else
+            {
+                throw new MensajeExepcion("No se selecciono ningún archivo.");
+            }
+        }
     }
 }

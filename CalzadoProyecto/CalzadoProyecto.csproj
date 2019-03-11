@@ -79,6 +79,7 @@
     <Compile Include="Exepciones\FechaExeption.cs" />
     <Compile Include="Exepciones\MensajeExepcion.cs" />
     <Compile Include="servicios\Calzado.cs" />
+    <Compile Include="servicios\Constantes.cs" />
     <Compile Include="VentanaPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
