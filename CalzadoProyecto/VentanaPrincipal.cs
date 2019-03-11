@@ -94,5 +94,11 @@ namespace CalzadoProyecto
                 MessageBox.Show(ef.darExepcion());
             }
         }
+
+        private void buscarPorPosiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIBuscarArchivoPosicion ven = new GUIBuscarArchivoPosicion();
+            ven.Show();
+        }
     }
 }

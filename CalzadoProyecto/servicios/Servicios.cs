@@ -347,5 +347,39 @@ namespace CalzadoProyecto.servicios
                 throw new MensajeExepcion("No se selecciono ningún archivo.");
             }
         }
+
+        public static void buscarEnAchivoPorPosicion(String pRuta, int pPosicion)
+        {
+
+            int talla;
+            double precio;
+            String tipo, estado, fecha, cad = "";
+            Boolean noEncontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            for (int i = 0; i <= pPosicion && !noEncontro; i++)
+            {
+                if (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+                {
+                    tipo = binaryReader.ReadString();
+                    precio = binaryReader.ReadDouble();
+                    talla = binaryReader.ReadInt32();
+                    fecha = binaryReader.ReadString();
+                    estado = binaryReader.ReadString();
+                    cad = Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
+                }else
+                {
+                    noEncontro = true;
+                    cad = "¡No se encontro el calzado especificado!";
+                }
+            }
+            binaryReader.Close();
+            archivo.Close();
+            Console.WriteLine(cad);
+        }
     }
 }
