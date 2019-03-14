@@ -21,13 +21,13 @@ namespace CalzadoProyecto.servicios
 
         private Calzado sgte;
 
-        public Calzado(String pTipo, int pTalla, double pPrecio, DateTime pFecha)
+        public Calzado(String pTipo, int pTalla, double pPrecio, DateTime pFecha, String pEstado)
         {
             cambiarTipo(pTipo);
             cambiarTalla(pTalla);
             cambiarPrecio(pPrecio);
             cambiarFechaDeCompra(pFecha);
-            estado = Constantes.ACTIVO;
+            estado = pEstado;
             sgte = null;
         }
 

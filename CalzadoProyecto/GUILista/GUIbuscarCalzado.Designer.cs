@@ -95,7 +95,7 @@
             // 
             // dteFechaB
             // 
-            this.dteFechaB.Location = new System.Drawing.Point(164, 74);
+            this.dteFechaB.Location = new System.Drawing.Point(164, 73);
             this.dteFechaB.Name = "dteFechaB";
             this.dteFechaB.Size = new System.Drawing.Size(195, 20);
             this.dteFechaB.TabIndex = 20;
@@ -117,7 +117,7 @@
             // 
             // tbxNumericoB
             // 
-            this.tbxNumericoB.Location = new System.Drawing.Point(164, 74);
+            this.tbxNumericoB.Location = new System.Drawing.Point(164, 73);
             this.tbxNumericoB.Maximum = new decimal(new int[] {
             10000000,
             0,
@@ -139,19 +139,10 @@
             // 
             // SelectorCalzadoB
             // 
-            this.SelectorCalzadoB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SelectorCalzadoB.FormattingEnabled = true;
-            this.SelectorCalzadoB.Items.AddRange(new object[] {
-            "tipo",
-            "talla",
-            "precio",
-            "posición",
-            "fecha"});
-            this.SelectorCalzadoB.Location = new System.Drawing.Point(164, 33);
+            this.SelectorCalzadoB.Location = new System.Drawing.Point(164, 36);
             this.SelectorCalzadoB.Name = "SelectorCalzadoB";
             this.SelectorCalzadoB.Size = new System.Drawing.Size(121, 21);
-            this.SelectorCalzadoB.TabIndex = 7;
-            this.SelectorCalzadoB.SelectedIndexChanged += new System.EventHandler(this.SelectorCalzado_SelectedIndexChanged);
+            this.SelectorCalzadoB.TabIndex = 22;
             // 
             // label2
             // 

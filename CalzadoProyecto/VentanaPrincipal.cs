@@ -59,7 +59,13 @@ namespace CalzadoProyecto
             MessageBox.Show("Proyecto creado por: \n\n-Andres Felipe Novoa\n-Luis Felipe Londoño Medina.\n\n© Todos los derechos reservados ©");
         }
 
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void buscarPorPosiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIBuscarArchivo ven = new GUIBuscarArchivo();
+            ven.Show();
+        }
+
+        private void guardarArchivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             rutaGuardar.FilterIndex = 1;
@@ -70,14 +76,14 @@ namespace CalzadoProyecto
             {
                 String ruta = rutaGuardar.FileName;
                 Servicios.guardarCalzados(ruta);
-            }catch(MensajeExepcion ef)
+            }
+            catch (MensajeExepcion ef)
             {
                 MessageBox.Show(ef.darExepcion());
             }
-
         }
 
-        private void cargarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cargarArchivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             rutaGuardar.FilterIndex = 1;
@@ -95,10 +101,9 @@ namespace CalzadoProyecto
             }
         }
 
-        private void buscarPorPosiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        private void añadirCalzadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIBuscarArchivoPosicion ven = new GUIBuscarArchivoPosicion();
-            ven.Show();
+
         }
     }
 }

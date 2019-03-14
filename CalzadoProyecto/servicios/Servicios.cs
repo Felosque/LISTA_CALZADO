@@ -1,6 +1,7 @@
 ﻿using CalzadoProyecto.Exepciones;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,21 @@ namespace CalzadoProyecto.servicios
     {
         private static Calzado cabecera;
 
+        private static String rutaArchivo = "D:\\Documentos_Asus\\Desktop\\prueba.txt";
+
         public static Calzado darCabecera()
         {
             return cabecera;
+        }
+        
+        public static String darPath()
+        {
+            return rutaArchivo;
+        }
+
+        public static void cambiarPath(String pPath)
+        {
+            rutaArchivo = pPath;
         }
 
         public static void adicionarCalzadoAlInicio(Calzado pCalzado)
@@ -348,13 +361,14 @@ namespace CalzadoProyecto.servicios
             }
         }
 
-        public static void buscarEnAchivoPorPosicion(String pRuta, int pPosicion)
+        public static Calzado buscarEnAchivoPorPosicion(String pRuta, int pPosicion)
         {
 
-            int talla;
-            double precio;
-            String tipo, estado, fecha, cad = "";
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "", cad = "";
             Boolean noEncontro = false;
+            Calzado nodoEncontrado = null;
 
             FileStream archivo;
             BinaryReader binaryReader;
@@ -375,11 +389,24 @@ namespace CalzadoProyecto.servicios
                 {
                     noEncontro = true;
                     cad = "¡No se encontro el calzado especificado!";
+                    binaryReader.Close();
+                    archivo.Close();
+                    throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
                 }
             }
+
+            if(noEncontro == false)
+            {
+                DateTime fechaF = DateTime.Parse(fecha);
+                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+                Console.WriteLine("Fecha: " + nodoEncontrado.darFechaDeCompra());
+            }
+
             binaryReader.Close();
             archivo.Close();
             Console.WriteLine(cad);
+            return nodoEncontrado;
         }
+
     }
 }

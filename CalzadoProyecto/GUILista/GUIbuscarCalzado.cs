@@ -36,7 +36,7 @@ namespace CalzadoProyecto.Dialogos
         posición
         fecha
          */
-        private void SelectorCalzado_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectorCalzadoB_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
             {
@@ -171,7 +171,7 @@ namespace CalzadoProyecto.Dialogos
                 double precio = (double)tbxPrecioC.Value;
                 int talla = (int)tbxTallaC.Value;
                 DateTime fecha = dteFechaC.Value;
-                calzadoModificado = new Calzado(tipo, talla, precio, fecha);
+                calzadoModificado = new Calzado(tipo, talla, precio, fecha, Constantes.ACTIVO);
                 MessageBox.Show("¡Se ha modificado el calzado correctamente!\n\n"+
                                 "---------ANTERIOR CALZADO\n\nTipo: "+calzadoBuscado.darTipo()+"\nPrecio: "+calzadoBuscado.darPrecio()+"\nTalla: "+calzadoBuscado.darTalla()+"\nFecha: "+calzadoBuscado.darFechaDeCompra()+"\n\n"+
                                 "---------ACTUAL CALZADO\n\nTipo: " + calzadoModificado.darTipo() + "\nPrecio: " + calzadoModificado.darPrecio() + "\nTalla: " + calzadoModificado.darTalla() + "\nFecha: " + calzadoModificado.darFechaDeCompra());

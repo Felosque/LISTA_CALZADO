@@ -53,6 +53,7 @@
             this.dtaDatos.Name = "dtaDatos";
             this.dtaDatos.Size = new System.Drawing.Size(546, 257);
             this.dtaDatos.TabIndex = 0;
+            this.dtaDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtaDatos_CellContentClick);
             // 
             // id
             // 
