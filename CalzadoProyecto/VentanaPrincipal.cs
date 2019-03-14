@@ -1,5 +1,6 @@
 ﻿using CalzadoProyecto.Dialogos;
 using CalzadoProyecto.Exepciones;
+using CalzadoProyecto.GUIArchivos;
 using CalzadoProyecto.servicios;
 using System;
 using System.Collections.Generic;
@@ -93,7 +94,7 @@ namespace CalzadoProyecto
             try
             {
                 String ruta = rutaGuardar.FileName;
-                Servicios.leerCalzado(ruta);
+                Servicios.leerCalzadoArchivo(ruta);
             }
             catch (MensajeExepcion ef)
             {
@@ -102,6 +103,12 @@ namespace CalzadoProyecto
         }
 
         private void añadirCalzadoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIInsertarArchivo ven = new GUIInsertarArchivo();
+            ven.Show();
+        }
+
+        private void sistemaDeArchivosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

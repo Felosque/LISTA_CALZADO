@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn = new System.Windows.Forms.Button();
-            this.numero = new System.Windows.Forms.NumericUpDown();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbxTexto = new System.Windows.Forms.Label();
@@ -42,6 +39,7 @@
             this.SelectorCalzadoB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grpResultados = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificarCalzado = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -53,7 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numero)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).BeginInit();
             this.grpResultados.SuspendLayout();
@@ -61,36 +58,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbxTallaC)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(318, 435);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(75, 23);
-            this.btn.TabIndex = 1;
-            this.btn.Text = "Buscar";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // numero
-            // 
-            this.numero.Location = new System.Drawing.Point(111, 435);
-            this.numero.Name = "numero";
-            this.numero.Size = new System.Drawing.Size(120, 20);
-            this.numero.TabIndex = 2;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(237, 435);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Ruta";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
@@ -202,6 +172,7 @@
             // 
             // grpResultados
             // 
+            this.grpResultados.Controls.Add(this.btnEliminar);
             this.grpResultados.Controls.Add(this.btnModificarCalzado);
             this.grpResultados.Controls.Add(this.btnConfirmar);
             this.grpResultados.Controls.Add(this.btnCancelar);
@@ -222,15 +193,25 @@
             this.grpResultados.Text = "Resultados de busqueda";
             this.grpResultados.Visible = false;
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(19, 153);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(166, 34);
+            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Text = "Eliminar Calzado";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            // 
             // btnModificarCalzado
             // 
-            this.btnModificarCalzado.Location = new System.Drawing.Point(111, 153);
+            this.btnModificarCalzado.Location = new System.Drawing.Point(191, 153);
             this.btnModificarCalzado.Name = "btnModificarCalzado";
             this.btnModificarCalzado.Size = new System.Drawing.Size(166, 34);
             this.btnModificarCalzado.TabIndex = 10;
             this.btnModificarCalzado.Text = "Modificar Calzado";
             this.btnModificarCalzado.UseVisualStyleBackColor = true;
             this.btnModificarCalzado.Visible = false;
+            this.btnModificarCalzado.Click += new System.EventHandler(this.btnModificarCalzado_Click);
             // 
             // btnConfirmar
             // 
@@ -242,6 +223,7 @@
             this.btnConfirmar.Text = "Modificar Calzado";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Visible = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 
@@ -253,6 +235,7 @@
             this.btnCancelar.Text = "Cancelar Modificacion";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Visible = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tbxTipoC
             // 
@@ -374,16 +357,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 467);
+            this.ClientSize = new System.Drawing.Size(442, 440);
             this.Controls.Add(this.grpResultados);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.numero);
-            this.Controls.Add(this.btn);
             this.Name = "GUIBuscarArchivo";
             this.Text = "GUIBuscarArchivoPosicion";
-            ((System.ComponentModel.ISupportInitialize)(this.numero)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).EndInit();
@@ -397,10 +376,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.NumericUpDown numero;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label tbxTexto;
@@ -422,5 +398,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

@@ -26,52 +26,29 @@ namespace CalzadoProyecto.Dialogos
             SelectorCalzadoB.SelectedIndex = 3;
         }
 
-        private void btn_Click(object sender, EventArgs e)
-        {
-            Servicios.buscarEnAchivoPorPosicion(openFileDialog1.FileName, Decimal.ToInt32(numero.Value));
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
-            openFileDialog1.FilterIndex = 1;
-            openFileDialog1.Multiselect = false;
-            openFileDialog1.ShowDialog();
-
-            try
-            {
-                String ruta = openFileDialog1.FileName;
-                Servicios.leerCalzado(ruta);
-            }
-            catch (MensajeExepcion ef)
-            {
-                MessageBox.Show(ef.darExepcion());
-            }
-        }
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
                 if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
                 {
-                    
+                    calzadoBuscado = Servicios.buscarEnAchivoPorTipo(Servicios.darPath(), SelectorTipoB.Text);
                 }
                 else if (SelectorCalzadoB.SelectedIndex == 1) //Talla
                 {
-                    
+                    calzadoBuscado = Servicios.buscarEnAchivoPorTalla(Servicios.darPath(), decimal.ToInt32(tbxNumericoB.Value));
                 }
                 else if (SelectorCalzadoB.SelectedIndex == 2) //Precio
                 {
-                    
+                    calzadoBuscado = Servicios.buscarEnAchivoPorPrecio(Servicios.darPath(), decimal.ToDouble(tbxNumericoB.Value));
                 }
                 else if (SelectorCalzadoB.SelectedIndex == 3) //Posicion
                 {
-                    calzadoBuscado = Servicios.buscarEnAchivoPorPosicion( Servicios.darPath(), decimal.ToInt32(tbxNumericoB.Value));
+                    calzadoBuscado = Servicios.buscarEnAchivoPorPosicion(Servicios.darPath(), decimal.ToInt32(tbxNumericoB.Value));
                 }
                 else if (SelectorCalzadoB.SelectedIndex == 4) //Fecha
                 {
-                    
+                    calzadoBuscado = Servicios.buscarEnAchivoPorFecha(Servicios.darPath(), dteFechaB.Value);
                 }
 
                 tbxPrecioC.Value = (decimal)calzadoBuscado.darPrecio();
@@ -147,6 +124,65 @@ namespace CalzadoProyecto.Dialogos
                 tbxNumericoB.Visible = false;
                 dteFechaB.Visible = true;
             }
+        }
+
+        private void btnModificarCalzado_Click(object sender, EventArgs e)
+        {
+            //Activamos los botones de las caracteristicas
+            btnCancelar.Visible = true;
+            btnConfirmar.Visible = true;
+            btnModificarCalzado.Visible = false;
+            btnEliminar.Visible = false;
+            tbxTipoC.Enabled = true;
+            tbxTallaC.Enabled = true;
+            tbxPrecioC.Enabled = true;
+            dteFechaC.Enabled = true;
+
+            //Desactivamos los botones de busquedas para evitar bugs
+            activarBotonesDeBusqueda(false);
+        }
+
+        public void activarBotonesDeBusqueda(Boolean pEstado)
+        {
+            if (pEstado == true)
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = true;
+                dteFechaB.Enabled = true;
+                SelectorCalzadoB.Enabled = true;
+                SelectorTipoB.Enabled = true;
+                btnBuscar.Enabled = true;
+            }
+            else
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = false;
+                dteFechaB.Enabled = false;
+                SelectorCalzadoB.Enabled = false;
+                SelectorTipoB.Enabled = false;
+                btnBuscar.Enabled = false;
+            }
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            btnModificarCalzado.Visible = true;
+            btnEliminar.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+            tbxTipoC.Enabled = false;
+            tbxTallaC.Enabled = false;
+            tbxPrecioC.Enabled = false;
+            dteFechaC.Enabled = false;
+            btnBuscar_Click(sender, e);
+
+            activarBotonesDeBusqueda(true);
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

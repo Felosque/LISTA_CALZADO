@@ -30,6 +30,9 @@ namespace CalzadoProyecto.servicios
             rutaArchivo = pPath;
         }
 
+        /**
+         * SISTEMA DE LISTA DE CALZADO
+         */
         public static void adicionarCalzadoAlInicio(Calzado pCalzado)
         {
             if(cabecera == null){
@@ -291,6 +294,11 @@ namespace CalzadoProyecto.servicios
             }
         }
 
+
+        /**
+         * SISTEMA DE ARCHIVOS DEL CALZADO
+         */
+
         public static void guardarCalzados(String pRuta)
         {
 
@@ -328,7 +336,24 @@ namespace CalzadoProyecto.servicios
             }
         }
 
-        public static void leerCalzado(String pRuta)
+        public static void adicionarCalzadoArchivo(Calzado pCalzado) {
+
+            FileStream archivo;
+            archivo = new FileStream(darPath(), FileMode.Append);
+            BinaryWriter br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            br.Write(pCalzado.darTipo());
+            br.Write(pCalzado.darPrecio());
+            br.Write(pCalzado.darTalla());
+            br.Write(Convert.ToString(pCalzado.darFechaDeCompra()));
+            br.Write(pCalzado.darEstado());
+
+            br.Close();
+            archivo.Close();
+
+        }
+
+        public static void leerCalzadoArchivo(String pRuta)
         {
             if (pRuta != null && pRuta.Length != 0)
             {
@@ -375,7 +400,7 @@ namespace CalzadoProyecto.servicios
             archivo = new FileStream(pRuta, FileMode.Open);
             binaryReader = new BinaryReader(archivo, Encoding.UTF8);
 
-            for (int i = 0; i <= pPosicion && !noEncontro; i++)
+            for (int i = 1; i <= pPosicion + 1 && !noEncontro; i++)
             {
                 if (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
                 {
@@ -384,11 +409,13 @@ namespace CalzadoProyecto.servicios
                     talla = binaryReader.ReadInt32();
                     fecha = binaryReader.ReadString();
                     estado = binaryReader.ReadString();
-                    cad = Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
+                    if(estado == Constantes.ELIMINADO || estado == Constantes.INACTIVO)
+                    {
+                        i--;
+                    }
                 }else
                 {
                     noEncontro = true;
-                    cad = "¡No se encontro el calzado especificado!";
                     binaryReader.Close();
                     archivo.Close();
                     throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
@@ -405,6 +432,202 @@ namespace CalzadoProyecto.servicios
             binaryReader.Close();
             archivo.Close();
             Console.WriteLine(cad);
+            return nodoEncontrado;
+        }
+
+        public static Calzado buscarEnAchivoPorTalla(String pRuta, int pTalla)
+        {
+
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+            Calzado nodoEncontrado = null;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (talla == pTalla)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                DateTime fechaF = DateTime.Parse(fecha);
+                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+
+            return nodoEncontrado;
+        }
+
+        public static Calzado buscarEnAchivoPorTipo(String pRuta, String pTipo)
+        {
+
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+            Calzado nodoEncontrado = null;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (tipo == pTipo)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                DateTime fechaF = DateTime.Parse(fecha);
+                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por el tipo especificado!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+
+            return nodoEncontrado;
+        }
+
+        public static Calzado buscarEnAchivoPorPrecio(String pRuta, double pPrecio)
+        {
+
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+            Calzado nodoEncontrado = null;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (precio == pPrecio)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                DateTime fechaF = DateTime.Parse(fecha);
+                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por el precio especificado!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+
+            return nodoEncontrado;
+        }
+
+        public static Calzado buscarEnAchivoPorFecha(String pRuta, DateTime pFecha)
+        {
+
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "";
+            DateTime fecha = DateTime.Now;
+            Boolean encontro = false;
+            Calzado nodoEncontrado = null;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = DateTime.Parse(binaryReader.ReadString());
+                
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (fecha.Day == pFecha.Day && fecha.Month == pFecha.Month && fecha.Year == pFecha.Year)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                nodoEncontrado = new Calzado(tipo, talla, precio, fecha, estado);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la fecha especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+
             return nodoEncontrado;
         }
 

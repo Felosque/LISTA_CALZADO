@@ -38,16 +38,17 @@
             this.buscarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostrarListaDeCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sistemaDeArchivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.guardarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.añadirCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cargarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarPorPosiciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guardarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.rutaGuardar = new System.Windows.Forms.OpenFileDialog();
-            this.actualizarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.añadirCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarRutaDeArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +70,7 @@
             this.archivoToolStripMenuItem,
             this.calzadoToolStripMenuItem,
             this.sistemaDeArchivosToolStripMenuItem,
+            this.configuraciónToolStripMenuItem,
             this.acercaDeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -134,13 +136,34 @@
             // 
             this.sistemaDeArchivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.añadirCalzadoToolStripMenuItem,
-            this.cargarArchivoToolStripMenuItem,
             this.buscarPorPosiciónToolStripMenuItem,
-            this.guardarArchivoToolStripMenuItem,
-            this.actualizarArchivoToolStripMenuItem});
+            this.cargarArchivoToolStripMenuItem,
+            this.guardarArchivoToolStripMenuItem});
             this.sistemaDeArchivosToolStripMenuItem.Name = "sistemaDeArchivosToolStripMenuItem";
             this.sistemaDeArchivosToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
             this.sistemaDeArchivosToolStripMenuItem.Text = "Calzado Archivo";
+            this.sistemaDeArchivosToolStripMenuItem.Click += new System.EventHandler(this.sistemaDeArchivosToolStripMenuItem_Click);
+            // 
+            // añadirCalzadoToolStripMenuItem
+            // 
+            this.añadirCalzadoToolStripMenuItem.Name = "añadirCalzadoToolStripMenuItem";
+            this.añadirCalzadoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.añadirCalzadoToolStripMenuItem.Text = "Añadir calzado";
+            this.añadirCalzadoToolStripMenuItem.Click += new System.EventHandler(this.añadirCalzadoToolStripMenuItem_Click);
+            // 
+            // cargarArchivoToolStripMenuItem
+            // 
+            this.cargarArchivoToolStripMenuItem.Name = "cargarArchivoToolStripMenuItem";
+            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cargarArchivoToolStripMenuItem.Text = "Ver registros";
+            this.cargarArchivoToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoToolStripMenuItem_Click);
+            // 
+            // buscarPorPosiciónToolStripMenuItem
+            // 
+            this.buscarPorPosiciónToolStripMenuItem.Name = "buscarPorPosiciónToolStripMenuItem";
+            this.buscarPorPosiciónToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.buscarPorPosiciónToolStripMenuItem.Text = "Buscar registro";
+            this.buscarPorPosiciónToolStripMenuItem.Click += new System.EventHandler(this.buscarPorPosiciónToolStripMenuItem_Click);
             // 
             // guardarArchivoToolStripMenuItem
             // 
@@ -148,20 +171,6 @@
             this.guardarArchivoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.guardarArchivoToolStripMenuItem.Text = "Guardar registros";
             this.guardarArchivoToolStripMenuItem.Click += new System.EventHandler(this.guardarArchivoToolStripMenuItem_Click);
-            // 
-            // cargarArchivoToolStripMenuItem
-            // 
-            this.cargarArchivoToolStripMenuItem.Name = "cargarArchivoToolStripMenuItem";
-            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.cargarArchivoToolStripMenuItem.Text = "Leer registros";
-            this.cargarArchivoToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoToolStripMenuItem_Click);
-            // 
-            // buscarPorPosiciónToolStripMenuItem
-            // 
-            this.buscarPorPosiciónToolStripMenuItem.Name = "buscarPorPosiciónToolStripMenuItem";
-            this.buscarPorPosiciónToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.buscarPorPosiciónToolStripMenuItem.Text = "Buscar registro";
-            this.buscarPorPosiciónToolStripMenuItem.Click += new System.EventHandler(this.buscarPorPosiciónToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -174,7 +183,7 @@
             // creditosToolStripMenuItem
             // 
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
-            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.creditosToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.creditosToolStripMenuItem.Text = "Creditos";
             this.creditosToolStripMenuItem.Click += new System.EventHandler(this.creditosToolStripMenuItem_Click);
             // 
@@ -193,12 +202,6 @@
             // 
             this.rutaGuardar.FileName = "Seleccionar archivo para guardar";
             // 
-            // actualizarArchivoToolStripMenuItem
-            // 
-            this.actualizarArchivoToolStripMenuItem.Name = "actualizarArchivoToolStripMenuItem";
-            this.actualizarArchivoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.actualizarArchivoToolStripMenuItem.Text = "Actualizar registro";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::CalzadoProyecto.Properties.Resources.logo2;
@@ -208,12 +211,19 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // añadirCalzadoToolStripMenuItem
+            // configuraciónToolStripMenuItem
             // 
-            this.añadirCalzadoToolStripMenuItem.Name = "añadirCalzadoToolStripMenuItem";
-            this.añadirCalzadoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.añadirCalzadoToolStripMenuItem.Text = "Añadir calzado";
-            this.añadirCalzadoToolStripMenuItem.Click += new System.EventHandler(this.añadirCalzadoToolStripMenuItem_Click);
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarRutaDeArchivoToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // modificarRutaDeArchivoToolStripMenuItem
+            // 
+            this.modificarRutaDeArchivoToolStripMenuItem.Name = "modificarRutaDeArchivoToolStripMenuItem";
+            this.modificarRutaDeArchivoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.modificarRutaDeArchivoToolStripMenuItem.Text = "Modificar ruta de archivo";
             // 
             // VentanaPrincipal
             // 
@@ -255,8 +265,9 @@
         private System.Windows.Forms.ToolStripMenuItem buscarPorPosiciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem guardarArchivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cargarArchivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actualizarArchivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem añadirCalzadoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem modificarRutaDeArchivoToolStripMenuItem;
     }
 }
 
