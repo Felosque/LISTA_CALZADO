@@ -39,16 +39,18 @@
             this.mostrarListaDeCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sistemaDeArchivosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.añadirCalzadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cargarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarPorPosiciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.borrarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cargarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guardarArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modificarRutaDeArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.rutaGuardar = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarRutaDeArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -137,26 +139,20 @@
             this.sistemaDeArchivosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.añadirCalzadoToolStripMenuItem,
             this.buscarPorPosiciónToolStripMenuItem,
+            this.editarRegistroToolStripMenuItem,
+            this.borrarRegistroToolStripMenuItem,
             this.cargarArchivoToolStripMenuItem,
             this.guardarArchivoToolStripMenuItem});
             this.sistemaDeArchivosToolStripMenuItem.Name = "sistemaDeArchivosToolStripMenuItem";
             this.sistemaDeArchivosToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
             this.sistemaDeArchivosToolStripMenuItem.Text = "Calzado Archivo";
-            this.sistemaDeArchivosToolStripMenuItem.Click += new System.EventHandler(this.sistemaDeArchivosToolStripMenuItem_Click);
             // 
             // añadirCalzadoToolStripMenuItem
             // 
             this.añadirCalzadoToolStripMenuItem.Name = "añadirCalzadoToolStripMenuItem";
-            this.añadirCalzadoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.añadirCalzadoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.añadirCalzadoToolStripMenuItem.Text = "Añadir calzado";
             this.añadirCalzadoToolStripMenuItem.Click += new System.EventHandler(this.añadirCalzadoToolStripMenuItem_Click);
-            // 
-            // cargarArchivoToolStripMenuItem
-            // 
-            this.cargarArchivoToolStripMenuItem.Name = "cargarArchivoToolStripMenuItem";
-            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.cargarArchivoToolStripMenuItem.Text = "Ver registros";
-            this.cargarArchivoToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoToolStripMenuItem_Click);
             // 
             // buscarPorPosiciónToolStripMenuItem
             // 
@@ -165,12 +161,48 @@
             this.buscarPorPosiciónToolStripMenuItem.Text = "Buscar registro";
             this.buscarPorPosiciónToolStripMenuItem.Click += new System.EventHandler(this.buscarPorPosiciónToolStripMenuItem_Click);
             // 
+            // editarRegistroToolStripMenuItem
+            // 
+            this.editarRegistroToolStripMenuItem.Name = "editarRegistroToolStripMenuItem";
+            this.editarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.editarRegistroToolStripMenuItem.Text = "Editar registro";
+            this.editarRegistroToolStripMenuItem.Click += new System.EventHandler(this.editarRegistroToolStripMenuItem_Click);
+            // 
+            // borrarRegistroToolStripMenuItem
+            // 
+            this.borrarRegistroToolStripMenuItem.Name = "borrarRegistroToolStripMenuItem";
+            this.borrarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.borrarRegistroToolStripMenuItem.Text = "Borrar registro";
+            this.borrarRegistroToolStripMenuItem.Click += new System.EventHandler(this.borrarRegistroToolStripMenuItem_Click);
+            // 
+            // cargarArchivoToolStripMenuItem
+            // 
+            this.cargarArchivoToolStripMenuItem.Name = "cargarArchivoToolStripMenuItem";
+            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.cargarArchivoToolStripMenuItem.Text = "Ver registros";
+            this.cargarArchivoToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoToolStripMenuItem_Click);
+            // 
             // guardarArchivoToolStripMenuItem
             // 
             this.guardarArchivoToolStripMenuItem.Name = "guardarArchivoToolStripMenuItem";
-            this.guardarArchivoToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.guardarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.guardarArchivoToolStripMenuItem.Text = "Guardar registros";
             this.guardarArchivoToolStripMenuItem.Click += new System.EventHandler(this.guardarArchivoToolStripMenuItem_Click);
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.modificarRutaDeArchivoToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.configuraciónToolStripMenuItem.Text = "Configuración";
+            // 
+            // modificarRutaDeArchivoToolStripMenuItem
+            // 
+            this.modificarRutaDeArchivoToolStripMenuItem.Name = "modificarRutaDeArchivoToolStripMenuItem";
+            this.modificarRutaDeArchivoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
+            this.modificarRutaDeArchivoToolStripMenuItem.Text = "Modificar ruta de archivo";
+            this.modificarRutaDeArchivoToolStripMenuItem.Click += new System.EventHandler(this.modificarRutaDeArchivoToolStripMenuItem_Click);
             // 
             // acercaDeToolStripMenuItem
             // 
@@ -210,20 +242,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(183, 83);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // configuraciónToolStripMenuItem
-            // 
-            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.modificarRutaDeArchivoToolStripMenuItem});
-            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.configuraciónToolStripMenuItem.Text = "Configuración";
-            // 
-            // modificarRutaDeArchivoToolStripMenuItem
-            // 
-            this.modificarRutaDeArchivoToolStripMenuItem.Name = "modificarRutaDeArchivoToolStripMenuItem";
-            this.modificarRutaDeArchivoToolStripMenuItem.Size = new System.Drawing.Size(207, 22);
-            this.modificarRutaDeArchivoToolStripMenuItem.Text = "Modificar ruta de archivo";
             // 
             // VentanaPrincipal
             // 
@@ -268,6 +286,8 @@
         private System.Windows.Forms.ToolStripMenuItem añadirCalzadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificarRutaDeArchivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarRegistroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem borrarRegistroToolStripMenuItem;
     }
 }
 

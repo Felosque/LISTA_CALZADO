@@ -10,18 +10,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CalzadoProyecto.Dialogos
+namespace CalzadoProyecto.GUIArchivos
 {
-    public partial class GUIBuscarArchivo : Form
+    public partial class GUIModificarArchivo : Form
     {
 
         private Calzado calzadoBuscado;
+        private int posicionCalzado;
+        private Calzado calzadoModificado;
 
-        public GUIBuscarArchivo()
+        public GUIModificarArchivo()
         {
             InitializeComponent();
             SelectorTipoB.Visible = false;
             SelectorCalzadoB.SelectedIndex = 3;
+        }
+
+        private void GUIModificarArchivo_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -58,6 +65,7 @@ namespace CalzadoProyecto.Dialogos
                 dteFechaC.Value = calzadoBuscado.darFechaDeCompra();
                 dteFechaC.Visible = true;
                 grpResultados.Visible = true;
+                btnModificarCalzado.Visible = true;
 
             }
             catch (MensajeExepcion pr)
@@ -72,7 +80,7 @@ namespace CalzadoProyecto.Dialogos
             }
         }
 
-        private void SelectorCalzadoB_SelectedIndexChanged(object sender, EventArgs e)
+        private void SelectorCalzadoB_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
             {
@@ -123,9 +131,57 @@ namespace CalzadoProyecto.Dialogos
             }
         }
 
-        private void GUIBuscarArchivo_Load(object sender, EventArgs e)
+        private void btnModificarCalzado_Click(object sender, EventArgs e)
         {
+            //Activamos los botones de las caracteristicas
+            btnCancelar.Visible = true;
+            btnConfirmar.Visible = true;
+            btnModificarCalzado.Visible = false;
+            tbxTipoC.Enabled = true;
+            tbxTallaC.Enabled = true;
+            tbxPrecioC.Enabled = true;
+            dteFechaC.Enabled = true;
+
+            //Desactivamos los botones de busquedas para evitar bugs
+            activarBotonesDeBusqueda(false);
+        }
+
+        public void activarBotonesDeBusqueda(Boolean pEstado)
+        {
+            if (pEstado == true)
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = true;
+                dteFechaB.Enabled = true;
+                SelectorCalzadoB.Enabled = true;
+                SelectorTipoB.Enabled = true;
+                btnBuscar.Enabled = true;
+            }
+            else
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = false;
+                dteFechaB.Enabled = false;
+                SelectorCalzadoB.Enabled = false;
+                SelectorTipoB.Enabled = false;
+                btnBuscar.Enabled = false;
+            }
 
         }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            btnModificarCalzado.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+            tbxTipoC.Enabled = false;
+            tbxTallaC.Enabled = false;
+            tbxPrecioC.Enabled = false;
+            dteFechaC.Enabled = false;
+            btnBuscar_Click(sender, e);
+
+            activarBotonesDeBusqueda(true);
+        }
+
     }
 }

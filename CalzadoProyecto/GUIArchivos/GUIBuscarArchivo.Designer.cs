@@ -39,10 +39,6 @@
             this.SelectorCalzadoB = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.grpResultados = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificarCalzado = new System.Windows.Forms.Button();
-            this.btnConfirmar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.tbxTipoC = new System.Windows.Forms.ComboBox();
             this.tbxPrecioC = new System.Windows.Forms.NumericUpDown();
             this.tbxTallaC = new System.Windows.Forms.NumericUpDown();
@@ -172,10 +168,6 @@
             // 
             // grpResultados
             // 
-            this.grpResultados.Controls.Add(this.btnEliminar);
-            this.grpResultados.Controls.Add(this.btnModificarCalzado);
-            this.grpResultados.Controls.Add(this.btnConfirmar);
-            this.grpResultados.Controls.Add(this.btnCancelar);
             this.grpResultados.Controls.Add(this.tbxTipoC);
             this.grpResultados.Controls.Add(this.tbxPrecioC);
             this.grpResultados.Controls.Add(this.tbxTallaC);
@@ -193,50 +185,6 @@
             this.grpResultados.Text = "Resultados de busqueda";
             this.grpResultados.Visible = false;
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(19, 153);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(166, 34);
-            this.btnEliminar.TabIndex = 21;
-            this.btnEliminar.Text = "Eliminar Calzado";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnModificarCalzado
-            // 
-            this.btnModificarCalzado.Location = new System.Drawing.Point(191, 153);
-            this.btnModificarCalzado.Name = "btnModificarCalzado";
-            this.btnModificarCalzado.Size = new System.Drawing.Size(166, 34);
-            this.btnModificarCalzado.TabIndex = 10;
-            this.btnModificarCalzado.Text = "Modificar Calzado";
-            this.btnModificarCalzado.UseVisualStyleBackColor = true;
-            this.btnModificarCalzado.Visible = false;
-            this.btnModificarCalzado.Click += new System.EventHandler(this.btnModificarCalzado_Click);
-            // 
-            // btnConfirmar
-            // 
-            this.btnConfirmar.ForeColor = System.Drawing.Color.Green;
-            this.btnConfirmar.Location = new System.Drawing.Point(209, 153);
-            this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(125, 34);
-            this.btnConfirmar.TabIndex = 20;
-            this.btnConfirmar.Text = "Modificar Calzado";
-            this.btnConfirmar.UseVisualStyleBackColor = true;
-            this.btnConfirmar.Visible = false;
-            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Location = new System.Drawing.Point(60, 153);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(125, 34);
-            this.btnCancelar.TabIndex = 11;
-            this.btnCancelar.Text = "Cancelar Modificacion";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Visible = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // tbxTipoC
             // 
             this.tbxTipoC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -247,7 +195,7 @@
             "Botas",
             "Tacones",
             "Deportivos"});
-            this.tbxTipoC.Location = new System.Drawing.Point(119, 30);
+            this.tbxTipoC.Location = new System.Drawing.Point(119, 44);
             this.tbxTipoC.Name = "tbxTipoC";
             this.tbxTipoC.Size = new System.Drawing.Size(200, 21);
             this.tbxTipoC.TabIndex = 19;
@@ -261,7 +209,7 @@
             0,
             0,
             0});
-            this.tbxPrecioC.Location = new System.Drawing.Point(119, 87);
+            this.tbxPrecioC.Location = new System.Drawing.Point(119, 101);
             this.tbxPrecioC.Maximum = new decimal(new int[] {
             -727379968,
             232,
@@ -285,7 +233,7 @@
             // tbxTallaC
             // 
             this.tbxTallaC.Enabled = false;
-            this.tbxTallaC.Location = new System.Drawing.Point(119, 59);
+            this.tbxTallaC.Location = new System.Drawing.Point(119, 73);
             this.tbxTallaC.Maximum = new decimal(new int[] {
             50,
             0,
@@ -309,7 +257,7 @@
             // dteFechaC
             // 
             this.dteFechaC.Enabled = false;
-            this.dteFechaC.Location = new System.Drawing.Point(119, 116);
+            this.dteFechaC.Location = new System.Drawing.Point(119, 130);
             this.dteFechaC.Name = "dteFechaC";
             this.dteFechaC.Size = new System.Drawing.Size(200, 20);
             this.dteFechaC.TabIndex = 10;
@@ -318,7 +266,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(66, 116);
+            this.label6.Location = new System.Drawing.Point(66, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 9;
@@ -327,7 +275,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(66, 87);
+            this.label5.Location = new System.Drawing.Point(66, 101);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 8;
@@ -337,7 +285,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(73, 59);
+            this.label4.Location = new System.Drawing.Point(73, 73);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 7;
@@ -347,7 +295,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(75, 30);
+            this.label3.Location = new System.Drawing.Point(75, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 6;
@@ -363,6 +311,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "GUIBuscarArchivo";
             this.Text = "GUIBuscarArchivoPosicion";
+            this.Load += new System.EventHandler(this.GUIBuscarArchivo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).EndInit();
@@ -387,9 +336,6 @@
         private System.Windows.Forms.ComboBox SelectorCalzadoB;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox grpResultados;
-        private System.Windows.Forms.Button btnModificarCalzado;
-        private System.Windows.Forms.Button btnConfirmar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.ComboBox tbxTipoC;
         private System.Windows.Forms.NumericUpDown tbxPrecioC;
         private System.Windows.Forms.NumericUpDown tbxTallaC;
@@ -398,6 +344,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEliminar;
     }
 }

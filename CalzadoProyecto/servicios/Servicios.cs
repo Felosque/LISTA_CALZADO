@@ -1,5 +1,6 @@
 ﻿using CalzadoProyecto.Exepciones;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -13,7 +14,7 @@ namespace CalzadoProyecto.servicios
     {
         private static Calzado cabecera;
 
-        private static String rutaArchivo = "D:\\Documentos_Asus\\Desktop\\prueba.txt";
+        private static String rutaArchivo = "";
 
         public static Calzado darCabecera()
         {
@@ -353,13 +354,14 @@ namespace CalzadoProyecto.servicios
 
         }
 
-        public static void leerCalzadoArchivo(String pRuta)
+        public static ArrayList leerCalzadoArchivo(String pRuta)
         {
             if (pRuta != null && pRuta.Length != 0)
             {
                 int talla;
                 double precio;
                 String tipo, estado, fecha, cad = "";
+                ArrayList calzados = new ArrayList();
 
                 FileStream archivo;
                 BinaryReader binaryReader;
@@ -373,16 +375,21 @@ namespace CalzadoProyecto.servicios
                     talla = binaryReader.ReadInt32();
                     fecha = binaryReader.ReadString();
                     estado = binaryReader.ReadString();
-                    cad = cad + Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
+                    if (estado != Constantes.ELIMINADO)
+                    {
+                        cad = cad + Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
+                        calzados.Add(new Calzado(tipo, talla, precio, DateTime.Parse(fecha), estado));
+                    }
                 }
 
                 binaryReader.Close();
                 archivo.Close();
                 Console.WriteLine(cad);
+                return calzados;
             }
             else
             {
-                throw new MensajeExepcion("No se selecciono ningún archivo.");
+                throw new MensajeExepcion("No se selecciono ningún archivo en el cual leer los calzados.");
             }
         }
 

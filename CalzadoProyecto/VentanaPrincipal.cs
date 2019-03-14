@@ -60,12 +60,6 @@ namespace CalzadoProyecto
             MessageBox.Show("Proyecto creado por: \n\n-Andres Felipe Novoa\n-Luis Felipe Londoño Medina.\n\n© Todos los derechos reservados ©");
         }
 
-        private void buscarPorPosiciónToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            GUIBuscarArchivo ven = new GUIBuscarArchivo();
-            ven.Show();
-        }
-
         private void guardarArchivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
@@ -75,8 +69,11 @@ namespace CalzadoProyecto
 
             try
             {
-                String ruta = rutaGuardar.FileName;
-                Servicios.guardarCalzados(ruta);
+                if (rutaGuardar.ShowDialog() == DialogResult.OK)
+                {
+                    String ruta = rutaGuardar.FileName;
+                    Servicios.guardarCalzados(ruta);
+                }
             }
             catch (MensajeExepcion ef)
             {
@@ -86,31 +83,72 @@ namespace CalzadoProyecto
 
         private void cargarArchivoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
-            rutaGuardar.FilterIndex = 1;
-            rutaGuardar.Multiselect = false;
-            rutaGuardar.ShowDialog();
-
-            try
-            {
-                String ruta = rutaGuardar.FileName;
-                Servicios.leerCalzadoArchivo(ruta);
+            if (Servicios.darPath() != "") { 
+                GUIVerCalzadosArchivo ven = new GUIVerCalzadosArchivo();
+                ven.Show();
             }
-            catch (MensajeExepcion ef)
+            else
             {
-                MessageBox.Show(ef.darExepcion());
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
+            }
+        }
+
+        private void buscarPorPosiciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Servicios.darPath() != "")
+            {
+                GUIBuscarArchivo ven = new GUIBuscarArchivo();
+                ven.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
             }
         }
 
         private void añadirCalzadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            GUIInsertarArchivo ven = new GUIInsertarArchivo();
-            ven.Show();
+            if (Servicios.darPath() != "")
+            {
+                GUIInsertarArchivo ven = new GUIInsertarArchivo();
+                ven.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
+            }
         }
 
-        private void sistemaDeArchivosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void borrarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (Servicios.darPath() != "")
+            {
+                GUIEliminarArchivo ven = new GUIEliminarArchivo();
+                ven.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
+            }
+        }
 
+        private void editarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Servicios.darPath() != "")
+            {
+                GUIModificarArchivo ven = new GUIModificarArchivo();
+                ven.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
+            }
+        }
+
+        private void modificarRutaDeArchivoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GUIConfiguracion ven = new GUIConfiguracion();
+            ven.Show();
         }
     }
 }

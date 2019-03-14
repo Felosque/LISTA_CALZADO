@@ -31,7 +31,23 @@ namespace CalzadoProyecto.Dialogos
 
         public void actualizarLista()
         {
-
+            if (Servicios.darCabecera() != null)
+            {
+                dtaDatos.Rows.Clear();
+                for (int i = 0; i < Servicios.darTamanoLista(); i++)
+                {
+                    dtaDatos.Rows.Add();
+                    dtaDatos.Rows[i].Cells[0].Value = i;
+                    dtaDatos.Rows[i].Cells[1].Value = Servicios.buscarCalzadoPorPosicion(i).darTipo();
+                    dtaDatos.Rows[i].Cells[2].Value = Servicios.buscarCalzadoPorPosicion(i).darTalla();
+                    dtaDatos.Rows[i].Cells[3].Value = Servicios.buscarCalzadoPorPosicion(i).darPrecio();
+                    dtaDatos.Rows[i].Cells[4].Value = Servicios.buscarCalzadoPorPosicion(i).darFechaDeCompra();
+                }
+            }
+            else
+            {
+                MessageBox.Show("¡La lista esta vacia!");
+            }
         }
 
         private void dtaDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)

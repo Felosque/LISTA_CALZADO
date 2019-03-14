@@ -52,11 +52,35 @@
     <Compile Include="GUIArchivos\GUIBuscarArchivo.Designer.cs">
       <DependentUpon>GUIBuscarArchivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIArchivos\GUIConfiguracion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIConfiguracion.Designer.cs">
+      <DependentUpon>GUIConfiguracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIEliminarArchivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIEliminarArchivo.Designer.cs">
+      <DependentUpon>GUIEliminarArchivo.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUIArchivos\GUIInsertarArchivo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUIArchivos\GUIInsertarArchivo.Designer.cs">
       <DependentUpon>GUIInsertarArchivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIModificarArchivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIModificarArchivo.Designer.cs">
+      <DependentUpon>GUIModificarArchivo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIVerCalzadosArchivo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIVerCalzadosArchivo.Designer.cs">
+      <DependentUpon>GUIVerCalzadosArchivo.cs</DependentUpon>
     </Compile>
     <Compile Include="GUILista\GUIbuscarCalzado.cs">
       <SubType>Form</SubType>
@@ -104,8 +128,20 @@
     <EmbeddedResource Include="GUIArchivos\GUIBuscarArchivo.resx">
       <DependentUpon>GUIBuscarArchivo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUIArchivos\GUIConfiguracion.resx">
+      <DependentUpon>GUIConfiguracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIArchivos\GUIEliminarArchivo.resx">
+      <DependentUpon>GUIEliminarArchivo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUIArchivos\GUIInsertarArchivo.resx">
       <DependentUpon>GUIInsertarArchivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIArchivos\GUIModificarArchivo.resx">
+      <DependentUpon>GUIModificarArchivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIArchivos\GUIVerCalzadosArchivo.resx">
+      <DependentUpon>GUIVerCalzadosArchivo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILista\GUIbuscarCalzado.resx">
       <DependentUpon>GUIbuscarCalzado.cs</DependentUpon>

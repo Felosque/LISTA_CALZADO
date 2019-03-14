@@ -10,14 +10,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CalzadoProyecto.Dialogos
+namespace CalzadoProyecto.GUIArchivos
 {
-    public partial class GUIBuscarArchivo : Form
+    public partial class GUIEliminarArchivo : Form
     {
-
         private Calzado calzadoBuscado;
+        private int posicionCalzado;
+        private Calzado calzadoModificado;
 
-        public GUIBuscarArchivo()
+        public GUIEliminarArchivo()
         {
             InitializeComponent();
             SelectorTipoB.Visible = false;
@@ -123,9 +124,50 @@ namespace CalzadoProyecto.Dialogos
             }
         }
 
-        private void GUIBuscarArchivo_Load(object sender, EventArgs e)
+        public void activarBotonesDeBusqueda(Boolean pEstado)
+        {
+            if (pEstado == true)
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = true;
+                dteFechaB.Enabled = true;
+                SelectorCalzadoB.Enabled = true;
+                SelectorTipoB.Enabled = true;
+                btnBuscar.Enabled = true;
+            }
+            else
+            {
+                //Activamos los botones de busquedas
+                tbxNumericoB.Enabled = false;
+                dteFechaB.Enabled = false;
+                SelectorCalzadoB.Enabled = false;
+                SelectorTipoB.Enabled = false;
+                btnBuscar.Enabled = false;
+            }
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            btnEliminar.Visible = false;
+            btnCancelar.Visible = true;
+            btnConfirmar.Visible = true;
+
+            activarBotonesDeBusqueda(false);
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            btnEliminar.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+
+            activarBotonesDeBusqueda(true);
         }
     }
 }
