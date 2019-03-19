@@ -65,7 +65,6 @@ namespace CalzadoProyecto
             rutaGuardar.Filter = "Text Files (.txt)|*.txt|All Files (*.*)|*.*";
             rutaGuardar.FilterIndex = 1;
             rutaGuardar.Multiselect = false;
-            rutaGuardar.ShowDialog();
 
             try
             {

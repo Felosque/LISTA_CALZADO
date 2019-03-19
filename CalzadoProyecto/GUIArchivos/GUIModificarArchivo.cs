@@ -16,7 +16,6 @@ namespace CalzadoProyecto.GUIArchivos
     {
 
         private Calzado calzadoBuscado;
-        private int posicionCalzado;
         private Calzado calzadoModificado;
 
         public GUIModificarArchivo()
@@ -183,5 +182,44 @@ namespace CalzadoProyecto.GUIArchivos
             activarBotonesDeBusqueda(true);
         }
 
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            calzadoModificado = new Calzado(tbxTipoC.Text, Convert.ToInt32(tbxTallaC.Value), Convert.ToInt32(tbxPrecioC.Value), dteFechaC.Value, Constantes.ACTIVO);
+
+            if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
+            {
+                Servicios.modificarEnArchivoPorTipo(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                calzadoModificado = null;
+                MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+            }
+            else if (SelectorCalzadoB.SelectedIndex == 1) //Talla
+            {
+
+            }
+            else if (SelectorCalzadoB.SelectedIndex == 2) //Precio
+            {
+
+            }
+            else if (SelectorCalzadoB.SelectedIndex == 3) //Posicion
+            {
+
+            }
+            else if (SelectorCalzadoB.SelectedIndex == 4) //Fecha
+            {
+                
+            }
+
+            btnModificarCalzado.Visible = true;
+            btnConfirmar.Visible = false;
+            btnCancelar.Visible = false;
+            tbxTipoC.Enabled = false;
+            tbxTallaC.Enabled = false;
+            tbxPrecioC.Enabled = false;
+            dteFechaC.Enabled = false;
+            btnBuscar_Click(sender, e);
+            activarBotonesDeBusqueda(true);
+            grpResultados.Visible = false;
+
+        }
     }
 }

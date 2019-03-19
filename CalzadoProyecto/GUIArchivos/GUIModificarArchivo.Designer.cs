@@ -99,6 +99,7 @@
             this.btnConfirmar.Text = "Modificar Calzado";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Visible = false;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnCancelar
             // 

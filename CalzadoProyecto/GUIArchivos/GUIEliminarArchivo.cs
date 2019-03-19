@@ -158,7 +158,25 @@ namespace CalzadoProyecto.GUIArchivos
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Servicios.eliminarEnArchivoPorPosicion( Servicios.darPath(), Convert.ToInt16(tbxNumericoB.Value));
+                MessageBox.Show("¡Se ha eliminado correctamente el calzado en el archivo!");
+                btnEliminar.Visible = true;
+                btnConfirmar.Visible = false;
+                btnCancelar.Visible = false;
+                grpResultados.Visible = false;
+                activarBotonesDeBusqueda(true);
+            }
+            catch(MensajeExepcion er)
+            {
+                MessageBox.Show(er.darExepcion());
+                btnEliminar.Visible = true;
+                btnConfirmar.Visible = false;
+                btnCancelar.Visible = false;
+                grpResultados.Visible = false;
+                activarBotonesDeBusqueda(true);
+            }
         }
 
         private void btnCancelar_Click_1(object sender, EventArgs e)
@@ -166,8 +184,8 @@ namespace CalzadoProyecto.GUIArchivos
             btnEliminar.Visible = true;
             btnConfirmar.Visible = false;
             btnCancelar.Visible = false;
-
             activarBotonesDeBusqueda(true);
+
         }
     }
 }

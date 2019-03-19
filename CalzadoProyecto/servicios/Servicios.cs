@@ -393,6 +393,7 @@ namespace CalzadoProyecto.servicios
             }
         }
 
+        //Metodos buscar
         public static Calzado buscarEnAchivoPorPosicion(String pRuta, int pPosicion)
         {
 
@@ -636,6 +637,110 @@ namespace CalzadoProyecto.servicios
             archivo.Close();
 
             return nodoEncontrado;
+        }
+
+        //Metodos eliminar
+        public static void eliminarEnArchivoPorPosicion(String pRuta, int pPosicion)
+        {
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean noEncontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            for (int i = 1; i <= pPosicion + 1 && !noEncontro; i++)
+            {
+                if (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
+                {
+                    tipo = binaryReader.ReadString();
+                    precio = binaryReader.ReadDouble();
+                    talla = binaryReader.ReadInt32();
+                    fecha = binaryReader.ReadString();
+                    estado = binaryReader.ReadString();
+
+                    if (estado == Constantes.ELIMINADO || estado == Constantes.INACTIVO)
+                    {
+                        i--;
+                    }
+                }
+                else
+                {
+                    noEncontro = true;
+                    binaryReader.Close();
+                    archivo.Close();
+                    throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
+                }
+            }
+
+            if (noEncontro == false)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
+        public static void eliminarEnArchivoPorTipo(String pRuta, String pTipo)
+        {
+            int talla = 0;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (tipo == pTipo)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por el tipo especificado!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
+        //Metodos modificar
+        public static void modificarEnArchivoPorTipo(String pRuta, Calzado pAntiguo, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorTipo(darPath(), pAntiguo.darTipo());
         }
 
     }
