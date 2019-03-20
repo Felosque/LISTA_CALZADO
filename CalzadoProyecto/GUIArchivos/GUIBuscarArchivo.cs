@@ -48,15 +48,17 @@ namespace CalzadoProyecto.Dialogos
                 {
                     calzadoBuscado = Servicios.buscarEnAchivoPorFecha(Servicios.darPath(), dteFechaB.Value);
                 }
+                else if (SelectorCalzadoB.SelectedIndex == 5) //Id
+                {
+                    calzadoBuscado = Servicios.buscarEnAchivoPorId(Servicios.darPath(), decimal.ToInt32(tbxNumericoB.Value));
+                }
 
                 tbxPrecioC.Value = (decimal)calzadoBuscado.darPrecio();
-                tbxPrecioC.Visible = true;
+                tbxIdC.Value = (decimal)calzadoBuscado.darId();
                 tbxTallaC.Value = calzadoBuscado.darTalla();
-                tbxTallaC.Visible = true;
+                tbxTipoC.Items.Add(calzadoBuscado.darTipo());
                 tbxTipoC.Text = calzadoBuscado.darTipo();
-                tbxTipoC.Visible = true;
                 dteFechaC.Value = calzadoBuscado.darFechaDeCompra();
-                dteFechaC.Visible = true;
                 grpResultados.Visible = true;
 
             }

@@ -149,5 +149,18 @@ namespace CalzadoProyecto
             GUIConfiguracion ven = new GUIConfiguracion();
             ven.Show();
         }
+
+        private void volcarRegistrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Servicios.darPath() != "")
+            {
+                GUIVolcadoDatos ven = new GUIVolcadoDatos();
+                ven.Show();
+            }
+            else
+            {
+                MessageBox.Show("¡Tiene que configurar primero el archivo donde trabajara la aplicación!  \n\nVaya a la sección de configuraciones y configure el path de la aplicación.");
+            }
+        }
     }
 }

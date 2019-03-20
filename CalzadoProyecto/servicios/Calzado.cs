@@ -15,19 +15,22 @@ namespace CalzadoProyecto.servicios
 
         private int talla;
 
+        private int id;
+
         private double precio;
 
         private DateTime fechaCompra;
 
         private Calzado sgte;
 
-        public Calzado(String pTipo, int pTalla, double pPrecio, DateTime pFecha, String pEstado)
+        public Calzado(int pId, String pTipo, int pTalla, double pPrecio, DateTime pFecha, String pEstado)
         {
             cambiarTipo(pTipo);
             cambiarTalla(pTalla);
             cambiarPrecio(pPrecio);
             cambiarFechaDeCompra(pFecha);
             estado = pEstado;
+            id = pId;
             sgte = null;
         }
 
@@ -44,6 +47,16 @@ namespace CalzadoProyecto.servicios
         public String darEstado()
         {
             return estado;
+        }
+
+        public void cambiarId(int pIde)
+        {
+            id = pIde;
+        }
+
+        public int darId()
+        {
+            return id;
         }
 
         public void cambiarTipo(String pTipo)

@@ -15,8 +15,6 @@ namespace CalzadoProyecto.GUIArchivos
     public partial class GUIEliminarArchivo : Form
     {
         private Calzado calzadoBuscado;
-        private int posicionCalzado;
-        private Calzado calzadoModificado;
 
         public GUIEliminarArchivo()
         {
@@ -49,15 +47,17 @@ namespace CalzadoProyecto.GUIArchivos
                 {
                     calzadoBuscado = Servicios.buscarEnAchivoPorFecha(Servicios.darPath(), dteFechaB.Value);
                 }
+                else if (SelectorCalzadoB.SelectedIndex == 5) //Fecha
+                {
+                    calzadoBuscado = Servicios.buscarEnAchivoPorId(Servicios.darPath(), decimal.ToInt32(tbxNumericoB.Value));
+                }
 
                 tbxPrecioC.Value = (decimal)calzadoBuscado.darPrecio();
-                tbxPrecioC.Visible = true;
+                tbxIdC.Value = (decimal)calzadoBuscado.darId();
                 tbxTallaC.Value = calzadoBuscado.darTalla();
-                tbxTallaC.Visible = true;
+                tbxTipoC.Items.Add(calzadoBuscado.darTipo());
                 tbxTipoC.Text = calzadoBuscado.darTipo();
-                tbxTipoC.Visible = true;
                 dteFechaC.Value = calzadoBuscado.darFechaDeCompra();
-                dteFechaC.Visible = true;
                 grpResultados.Visible = true;
 
             }
@@ -122,6 +122,13 @@ namespace CalzadoProyecto.GUIArchivos
                 tbxNumericoB.Visible = false;
                 dteFechaB.Visible = true;
             }
+            else if (SelectorCalzadoB.SelectedIndex == 5) //Fecha
+            {
+                tbxTexto.Text = "ID:";
+                SelectorTipoB.Visible = false;
+                tbxNumericoB.Visible = true;
+                dteFechaB.Visible = false;
+            }
         }
 
         public void activarBotonesDeBusqueda(Boolean pEstado)
@@ -152,7 +159,6 @@ namespace CalzadoProyecto.GUIArchivos
             btnEliminar.Visible = false;
             btnCancelar.Visible = true;
             btnConfirmar.Visible = true;
-
             activarBotonesDeBusqueda(false);
         }
 
@@ -160,8 +166,37 @@ namespace CalzadoProyecto.GUIArchivos
         {
             try
             {
-                Servicios.eliminarEnArchivoPorPosicion( Servicios.darPath(), Convert.ToInt16(tbxNumericoB.Value));
-                MessageBox.Show("¡Se ha eliminado correctamente el calzado en el archivo!");
+                if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
+                {
+                    Servicios.eliminarEnArchivoPorTipo(Servicios.darPath(), tbxTipoC.Text);
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 1) //Talla
+                {
+                    Servicios.eliminarEnArchivoPorTalla(Servicios.darPath(), Convert.ToInt32(tbxTallaC.Value));
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 2) //Precio
+                {
+                    Servicios.eliminarEnArchivoPorPrecio(Servicios.darPath(), Convert.ToDouble(tbxTallaC.Value));
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 3) //Posicion
+                {
+                    Servicios.eliminarEnArchivoPorPosicion(Servicios.darPath(), Convert.ToInt32(tbxNumericoB.Value));
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 4) //Fecha
+                {
+                    Servicios.eliminarEnArchivoPorFecha(Servicios.darPath(), dteFechaC.Value);
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 5) //ID
+                {
+                    Servicios.eliminarEnArchivoPorId(Servicios.darPath(), Convert.ToInt32(tbxIdC.Value));
+                    MessageBox.Show("¡Se ha eliminado correctamente el calzado seleccionado!");
+                }
+                
                 btnEliminar.Visible = true;
                 btnConfirmar.Visible = false;
                 btnCancelar.Visible = false;
@@ -176,6 +211,14 @@ namespace CalzadoProyecto.GUIArchivos
                 btnCancelar.Visible = false;
                 grpResultados.Visible = false;
                 activarBotonesDeBusqueda(true);
+            }catch(FechaExeption ef)
+            {
+                MessageBox.Show(ef.darExepcion());
+                btnEliminar.Visible = true;
+                btnConfirmar.Visible = false;
+                btnCancelar.Visible = false;
+                grpResultados.Visible = false;
+                activarBotonesDeBusqueda(true);
             }
         }
 
@@ -185,6 +228,11 @@ namespace CalzadoProyecto.GUIArchivos
             btnConfirmar.Visible = false;
             btnCancelar.Visible = false;
             activarBotonesDeBusqueda(true);
+
+        }
+
+        private void tbxTipoC_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -82,6 +82,12 @@
     <Compile Include="GUIArchivos\GUIVerCalzadosArchivo.Designer.cs">
       <DependentUpon>GUIVerCalzadosArchivo.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIArchivos\GUIVolcadoDatos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUIArchivos\GUIVolcadoDatos.Designer.cs">
+      <DependentUpon>GUIVolcadoDatos.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUILista\GUIbuscarCalzado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUIArchivos\GUIVerCalzadosArchivo.resx">
       <DependentUpon>GUIVerCalzadosArchivo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUIArchivos\GUIVolcadoDatos.resx">
+      <DependentUpon>GUIVolcadoDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUILista\GUIbuscarCalzado.resx">
       <DependentUpon>GUIbuscarCalzado.cs</DependentUpon>

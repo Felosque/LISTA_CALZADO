@@ -58,7 +58,7 @@ namespace CalzadoProyecto.Dialogos
 
             try
             {
-                Calzado adicionar = new Calzado(tipo, talla, precio, fecha, Constantes.ACTIVO);
+                Calzado adicionar = new Calzado(-1, tipo, talla, precio, fecha, Constantes.ACTIVO);
                 if (SelectorCalzado.SelectedIndex == 0)
                 {
                     Servicios.adicionarCalzadoAlInicio(adicionar);

@@ -40,10 +40,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbxId = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxId)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -69,6 +72,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tbxId);
+            this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.pbxImg);
             this.groupBox2.Controls.Add(this.tbxTipo);
             this.groupBox2.Controls.Add(this.tbxPrecio);
@@ -81,7 +86,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(34, 119);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 162);
+            this.groupBox2.Size = new System.Drawing.Size(391, 178);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Características";
@@ -205,6 +210,32 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tipo:";
             // 
+            // tbxId
+            // 
+            this.tbxId.Location = new System.Drawing.Point(79, 143);
+            this.tbxId.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
+            this.tbxId.Name = "tbxId";
+            this.tbxId.Size = new System.Drawing.Size(200, 20);
+            this.tbxId.TabIndex = 21;
+            this.tbxId.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 145);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "ID:";
+            // 
             // GUIInsertarArchivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTalla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxId)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +270,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown tbxId;
+        private System.Windows.Forms.Label label1;
     }
 }

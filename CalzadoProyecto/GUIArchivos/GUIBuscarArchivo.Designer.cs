@@ -47,11 +47,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.tbxIdC = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).BeginInit();
             this.grpResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecioC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTallaC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxIdC)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -148,7 +151,8 @@
             "talla",
             "precio",
             "posición",
-            "fecha"});
+            "fecha",
+            "id"});
             this.SelectorCalzadoB.Location = new System.Drawing.Point(164, 33);
             this.SelectorCalzadoB.Name = "SelectorCalzadoB";
             this.SelectorCalzadoB.Size = new System.Drawing.Size(121, 21);
@@ -168,6 +172,8 @@
             // 
             // grpResultados
             // 
+            this.grpResultados.Controls.Add(this.tbxIdC);
+            this.grpResultados.Controls.Add(this.label7);
             this.grpResultados.Controls.Add(this.tbxTipoC);
             this.grpResultados.Controls.Add(this.tbxPrecioC);
             this.grpResultados.Controls.Add(this.tbxTallaC);
@@ -199,7 +205,6 @@
             this.tbxTipoC.Name = "tbxTipoC";
             this.tbxTipoC.Size = new System.Drawing.Size(200, 21);
             this.tbxTipoC.TabIndex = 19;
-            this.tbxTipoC.Visible = false;
             // 
             // tbxPrecioC
             // 
@@ -228,7 +233,6 @@
             0,
             0,
             0});
-            this.tbxPrecioC.Visible = false;
             // 
             // tbxTallaC
             // 
@@ -252,7 +256,6 @@
             0,
             0,
             0});
-            this.tbxTallaC.Visible = false;
             // 
             // dteFechaC
             // 
@@ -261,7 +264,6 @@
             this.dteFechaC.Name = "dteFechaC";
             this.dteFechaC.Size = new System.Drawing.Size(200, 20);
             this.dteFechaC.TabIndex = 10;
-            this.dteFechaC.Visible = false;
             // 
             // label6
             // 
@@ -301,6 +303,43 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Tipo:";
             // 
+            // tbxIdC
+            // 
+            this.tbxIdC.Enabled = false;
+            this.tbxIdC.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.tbxIdC.Location = new System.Drawing.Point(119, 158);
+            this.tbxIdC.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.tbxIdC.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbxIdC.Name = "tbxIdC";
+            this.tbxIdC.Size = new System.Drawing.Size(200, 20);
+            this.tbxIdC.TabIndex = 21;
+            this.tbxIdC.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 160);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "ID:";
+            // 
             // GUIBuscarArchivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,7 +349,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
             this.Name = "GUIBuscarArchivo";
-            this.Text = "GUIBuscarArchivoPosicion";
             this.Load += new System.EventHandler(this.GUIBuscarArchivo_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -319,6 +357,7 @@
             this.grpResultados.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecioC)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTallaC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxIdC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -344,5 +383,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown tbxIdC;
+        private System.Windows.Forms.Label label7;
     }
 }

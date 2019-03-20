@@ -51,6 +51,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.rutaGuardar = new System.Windows.Forms.OpenFileDialog();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.volcarRegistrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -142,6 +143,7 @@
             this.editarRegistroToolStripMenuItem,
             this.borrarRegistroToolStripMenuItem,
             this.cargarArchivoToolStripMenuItem,
+            this.volcarRegistrosToolStripMenuItem,
             this.guardarArchivoToolStripMenuItem});
             this.sistemaDeArchivosToolStripMenuItem.Name = "sistemaDeArchivosToolStripMenuItem";
             this.sistemaDeArchivosToolStripMenuItem.Size = new System.Drawing.Size(105, 20);
@@ -243,6 +245,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // volcarRegistrosToolStripMenuItem
+            // 
+            this.volcarRegistrosToolStripMenuItem.Name = "volcarRegistrosToolStripMenuItem";
+            this.volcarRegistrosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.volcarRegistrosToolStripMenuItem.Text = "Volcar registros";
+            this.volcarRegistrosToolStripMenuItem.Click += new System.EventHandler(this.volcarRegistrosToolStripMenuItem_Click);
+            // 
             // VentanaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,6 +297,7 @@
         private System.Windows.Forms.ToolStripMenuItem modificarRutaDeArchivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarRegistroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem borrarRegistroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volcarRegistrosToolStripMenuItem;
     }
 }
 

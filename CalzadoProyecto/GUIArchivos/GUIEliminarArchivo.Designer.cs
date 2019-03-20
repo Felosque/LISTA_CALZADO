@@ -49,15 +49,20 @@
             this.tbxNumericoB = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.SelectorCalzadoB = new System.Windows.Forms.ComboBox();
+            this.tbxIdC = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.grpResultados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxPrecioC)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbxTallaC)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxIdC)).BeginInit();
             this.SuspendLayout();
             // 
             // grpResultados
             // 
+            this.grpResultados.Controls.Add(this.tbxIdC);
+            this.grpResultados.Controls.Add(this.label7);
             this.grpResultados.Controls.Add(this.btnEliminar);
             this.grpResultados.Controls.Add(this.btnConfirmar);
             this.grpResultados.Controls.Add(this.btnCancelar);
@@ -72,7 +77,7 @@
             this.grpResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpResultados.Location = new System.Drawing.Point(31, 216);
             this.grpResultados.Name = "grpResultados";
-            this.grpResultados.Size = new System.Drawing.Size(383, 193);
+            this.grpResultados.Size = new System.Drawing.Size(383, 222);
             this.grpResultados.TabIndex = 13;
             this.grpResultados.TabStop = false;
             this.grpResultados.Text = "Resultados de busqueda";
@@ -80,9 +85,9 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(119, 153);
+            this.btnEliminar.Location = new System.Drawing.Point(119, 180);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(166, 34);
+            this.btnEliminar.Size = new System.Drawing.Size(166, 36);
             this.btnEliminar.TabIndex = 21;
             this.btnEliminar.Text = "Eliminar Calzado";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -91,7 +96,7 @@
             // btnConfirmar
             // 
             this.btnConfirmar.ForeColor = System.Drawing.Color.Green;
-            this.btnConfirmar.Location = new System.Drawing.Point(209, 153);
+            this.btnConfirmar.Location = new System.Drawing.Point(208, 182);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(125, 34);
             this.btnConfirmar.TabIndex = 20;
@@ -103,7 +108,7 @@
             // btnCancelar
             // 
             this.btnCancelar.ForeColor = System.Drawing.Color.Red;
-            this.btnCancelar.Location = new System.Drawing.Point(60, 153);
+            this.btnCancelar.Location = new System.Drawing.Point(60, 182);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(125, 34);
             this.btnCancelar.TabIndex = 11;
@@ -126,7 +131,7 @@
             this.tbxTipoC.Name = "tbxTipoC";
             this.tbxTipoC.Size = new System.Drawing.Size(200, 21);
             this.tbxTipoC.TabIndex = 19;
-            this.tbxTipoC.Visible = false;
+            this.tbxTipoC.SelectedIndexChanged += new System.EventHandler(this.tbxTipoC_SelectedIndexChanged);
             // 
             // tbxPrecioC
             // 
@@ -155,7 +160,6 @@
             0,
             0,
             0});
-            this.tbxPrecioC.Visible = false;
             // 
             // tbxTallaC
             // 
@@ -179,7 +183,6 @@
             0,
             0,
             0});
-            this.tbxTallaC.Visible = false;
             // 
             // dteFechaC
             // 
@@ -188,7 +191,6 @@
             this.dteFechaC.Name = "dteFechaC";
             this.dteFechaC.Size = new System.Drawing.Size(200, 20);
             this.dteFechaC.TabIndex = 10;
-            this.dteFechaC.Visible = false;
             // 
             // label6
             // 
@@ -329,18 +331,56 @@
             "talla",
             "precio",
             "posición",
-            "fecha"});
+            "fecha",
+            "id"});
             this.SelectorCalzadoB.Location = new System.Drawing.Point(164, 33);
             this.SelectorCalzadoB.Name = "SelectorCalzadoB";
             this.SelectorCalzadoB.Size = new System.Drawing.Size(121, 21);
             this.SelectorCalzadoB.TabIndex = 7;
             this.SelectorCalzadoB.SelectedIndexChanged += new System.EventHandler(this.SelectorCalzadoB_SelectedIndexChanged);
             // 
+            // tbxIdC
+            // 
+            this.tbxIdC.Enabled = false;
+            this.tbxIdC.Increment = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.tbxIdC.Location = new System.Drawing.Point(119, 142);
+            this.tbxIdC.Maximum = new decimal(new int[] {
+            -727379968,
+            232,
+            0,
+            0});
+            this.tbxIdC.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tbxIdC.Name = "tbxIdC";
+            this.tbxIdC.Size = new System.Drawing.Size(200, 20);
+            this.tbxIdC.TabIndex = 23;
+            this.tbxIdC.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(85, 144);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(21, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "ID:";
+            // 
             // GUIEliminarArchivo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 419);
+            this.ClientSize = new System.Drawing.Size(464, 441);
             this.Controls.Add(this.grpResultados);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -352,6 +392,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbxNumericoB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbxIdC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -380,5 +421,7 @@
         private System.Windows.Forms.NumericUpDown tbxNumericoB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox SelectorCalzadoB;
+        private System.Windows.Forms.NumericUpDown tbxIdC;
+        private System.Windows.Forms.Label label7;
     }
 }

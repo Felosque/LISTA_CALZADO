@@ -46,17 +46,19 @@ namespace CalzadoProyecto.GUIArchivos
         private void button1_Click(object sender, EventArgs e)
         {
             String tipo = tbxTipo.Text;
+            int id = Decimal.ToInt32(tbxId.Value);
             int talla = Decimal.ToInt32(tbxTalla.Value);
             int precio = Decimal.ToInt32(tbxPrecio.Value);
             DateTime fecha = dteFecha.Value;
 
             try
             {
-                Calzado adicionar = new Calzado(tipo, talla, precio, fecha, Constantes.ACTIVO);
+                Calzado adicionar = new Calzado(id, tipo, talla, precio, fecha, Constantes.ACTIVO);
                 Servicios.adicionarCalzadoArchivo(adicionar);
                 MessageBox.Show("¡Se adiciono el calzado correctamente en el archivo!\n" + "\nTipo: " + tipo + "\nTalla: " + talla + "\nPrecio: " + precio + "\nFecha: " + fecha);
                 tbxPrecio.Value = 1;
                 tbxTalla.Value = 20;
+                tbxId.Value = 0;
                 tbxTipo.Text = "";
                 tbxTipo.Focus();
             }

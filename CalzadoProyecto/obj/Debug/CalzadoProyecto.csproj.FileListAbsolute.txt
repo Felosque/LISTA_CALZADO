@@ -19,3 +19,4 @@ D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\Calzado
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.GUIArchivos.GUIVerCalzadosArchivo.resources
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.GUIArchivos.GUIModificarArchivo.resources
 D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.GUIArchivos.GUIConfiguracion.resources
+D:\Documentos_Asus\Documents\Visual Studio 2015\Projects\CalzadoProyecto\CalzadoProyecto\obj\Debug\CalzadoProyecto.GUIArchivos.GUIVolcadoDatos.resources

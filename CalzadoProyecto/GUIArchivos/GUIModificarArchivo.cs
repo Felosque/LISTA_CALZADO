@@ -54,15 +54,17 @@ namespace CalzadoProyecto.GUIArchivos
                 {
                     calzadoBuscado = Servicios.buscarEnAchivoPorFecha(Servicios.darPath(), dteFechaB.Value);
                 }
+                else if (SelectorCalzadoB.SelectedIndex == 5) //ID
+                {
+                    calzadoBuscado = Servicios.buscarEnAchivoPorId(Servicios.darPath(), Convert.ToInt32(tbxNumericoB.Value));
+                }
 
                 tbxPrecioC.Value = (decimal)calzadoBuscado.darPrecio();
-                tbxPrecioC.Visible = true;
                 tbxTallaC.Value = calzadoBuscado.darTalla();
-                tbxTallaC.Visible = true;
+                reiniciarComboBox(calzadoBuscado.darTipo());
                 tbxTipoC.Text = calzadoBuscado.darTipo();
-                tbxTipoC.Visible = true;
                 dteFechaC.Value = calzadoBuscado.darFechaDeCompra();
-                dteFechaC.Visible = true;
+                tbxIdC.Value = (decimal)calzadoBuscado.darId();
                 grpResultados.Visible = true;
                 btnModificarCalzado.Visible = true;
 
@@ -128,6 +130,13 @@ namespace CalzadoProyecto.GUIArchivos
                 tbxNumericoB.Visible = false;
                 dteFechaB.Visible = true;
             }
+            else if (SelectorCalzadoB.SelectedIndex == 5) //ID
+            {
+                tbxTexto.Text = "ID:";
+                SelectorTipoB.Visible = false;
+                tbxNumericoB.Visible = true;
+                dteFechaB.Visible = false;
+            }
         }
 
         private void btnModificarCalzado_Click(object sender, EventArgs e)
@@ -140,6 +149,7 @@ namespace CalzadoProyecto.GUIArchivos
             tbxTallaC.Enabled = true;
             tbxPrecioC.Enabled = true;
             dteFechaC.Enabled = true;
+            tbxIdC.Enabled = true;
 
             //Desactivamos los botones de busquedas para evitar bugs
             activarBotonesDeBusqueda(false);
@@ -177,49 +187,84 @@ namespace CalzadoProyecto.GUIArchivos
             tbxTallaC.Enabled = false;
             tbxPrecioC.Enabled = false;
             dteFechaC.Enabled = false;
+            tbxIdC.Enabled = false;
             btnBuscar_Click(sender, e);
 
             activarBotonesDeBusqueda(true);
         }
 
+        private void reiniciarComboBox(String pNuevo)
+        {
+            tbxTipoC.Items.Clear();
+            tbxTipoC.Items.Add("Chanclas");
+            tbxTipoC.Items.Add("Botas");
+            tbxTipoC.Items.Add("Tacones");
+            tbxTipoC.Items.Add("Deportivos");
+            tbxTipoC.Items.Add(pNuevo);
+        }
+
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            calzadoModificado = new Calzado(tbxTipoC.Text, Convert.ToInt32(tbxTallaC.Value), Convert.ToInt32(tbxPrecioC.Value), dteFechaC.Value, Constantes.ACTIVO);
+            try{
+                calzadoModificado = new Calzado(Convert.ToInt32(tbxIdC.Value), tbxTipoC.Text, Convert.ToInt32(tbxTallaC.Value), Convert.ToInt32(tbxPrecioC.Value), dteFechaC.Value, Constantes.ACTIVO);
 
-            if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
-            {
-                Servicios.modificarEnArchivoPorTipo(Servicios.darPath(), calzadoBuscado, calzadoModificado);
-                calzadoModificado = null;
-                MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                if (SelectorCalzadoB.SelectedIndex == 0) //Tipo
+                {
+                    Servicios.modificarEnArchivoPorTipo(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 1) //Talla
+                {
+                    Servicios.modificarEnArchivoPorTalla(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 2) //Precio
+                {
+                    Servicios.modificarEnArchivoPorPrecio(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 3) //Posicion
+                {
+                    Servicios.modificarEnArchivoPorPosicion(Servicios.darPath(), Convert.ToInt32(tbxNumericoB.Value), calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 4) //Fecha
+                {
+                    Servicios.modificarEnArchivoPorFecha(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+                else if (SelectorCalzadoB.SelectedIndex == 5) //ID
+                {
+                    Servicios.modificarEnArchivoPorId(Servicios.darPath(), calzadoBuscado, calzadoModificado);
+                    calzadoModificado = null;
+                    MessageBox.Show("¡Se ha modificado correctamente el calzado seleccionado!");
+                }
+
+                btnModificarCalzado.Visible = true;
+                btnConfirmar.Visible = false;
+                btnCancelar.Visible = false;
+                tbxTipoC.Enabled = false;
+                tbxTallaC.Enabled = false;
+                tbxPrecioC.Enabled = false;
+                dteFechaC.Enabled = false;
+                tbxIdC.Enabled = false;
+                activarBotonesDeBusqueda(true);
+                grpResultados.Visible = false;
+
             }
-            else if (SelectorCalzadoB.SelectedIndex == 1) //Talla
+            catch (MensajeExepcion er)
             {
-
+                MessageBox.Show(er.darExepcion());
             }
-            else if (SelectorCalzadoB.SelectedIndex == 2) //Precio
+            catch (FechaExeption ef)
             {
-
+                MessageBox.Show(ef.darExepcion());
             }
-            else if (SelectorCalzadoB.SelectedIndex == 3) //Posicion
-            {
-
-            }
-            else if (SelectorCalzadoB.SelectedIndex == 4) //Fecha
-            {
-                
-            }
-
-            btnModificarCalzado.Visible = true;
-            btnConfirmar.Visible = false;
-            btnCancelar.Visible = false;
-            tbxTipoC.Enabled = false;
-            tbxTallaC.Enabled = false;
-            tbxPrecioC.Enabled = false;
-            dteFechaC.Enabled = false;
-            btnBuscar_Click(sender, e);
-            activarBotonesDeBusqueda(true);
-            grpResultados.Visible = false;
-
         }
     }
 }

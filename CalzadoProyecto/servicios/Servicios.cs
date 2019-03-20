@@ -315,6 +315,7 @@ namespace CalzadoProyecto.servicios
                     while (recorrido != null)
                     {
                         br.Write(recorrido.darTipo());
+                        br.Write(recorrido.darId());
                         br.Write(recorrido.darPrecio());
                         br.Write(recorrido.darTalla());
                         br.Write(Convert.ToString(recorrido.darFechaDeCompra()));
@@ -344,6 +345,7 @@ namespace CalzadoProyecto.servicios
             BinaryWriter br = new BinaryWriter(archivo, Encoding.UTF8);
 
             br.Write(pCalzado.darTipo());
+            br.Write(pCalzado.darId());
             br.Write(pCalzado.darPrecio());
             br.Write(pCalzado.darTalla());
             br.Write(Convert.ToString(pCalzado.darFechaDeCompra()));
@@ -358,7 +360,7 @@ namespace CalzadoProyecto.servicios
         {
             if (pRuta != null && pRuta.Length != 0)
             {
-                int talla;
+                int talla, id;
                 double precio;
                 String tipo, estado, fecha, cad = "";
                 ArrayList calzados = new ArrayList();
@@ -371,6 +373,7 @@ namespace CalzadoProyecto.servicios
                 while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
                 {
                     tipo = binaryReader.ReadString();
+                    id = binaryReader.ReadInt32();
                     precio = binaryReader.ReadDouble();
                     talla = binaryReader.ReadInt32();
                     fecha = binaryReader.ReadString();
@@ -378,7 +381,7 @@ namespace CalzadoProyecto.servicios
                     if (estado != Constantes.ELIMINADO)
                     {
                         cad = cad + Environment.NewLine + tipo + " , " + precio + " , " + talla + " , " + fecha + " , " + estado + ".";
-                        calzados.Add(new Calzado(tipo, talla, precio, DateTime.Parse(fecha), estado));
+                        calzados.Add(new Calzado(id, tipo, talla, precio, DateTime.Parse(fecha), estado));
                     }
                 }
 
@@ -397,7 +400,7 @@ namespace CalzadoProyecto.servicios
         public static Calzado buscarEnAchivoPorPosicion(String pRuta, int pPosicion)
         {
 
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "", cad = "";
             Boolean noEncontro = false;
@@ -413,6 +416,7 @@ namespace CalzadoProyecto.servicios
                 if (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
                 {
                     tipo = binaryReader.ReadString();
+                    id = binaryReader.ReadInt32();
                     precio = binaryReader.ReadDouble();
                     talla = binaryReader.ReadInt32();
                     fecha = binaryReader.ReadString();
@@ -433,7 +437,7 @@ namespace CalzadoProyecto.servicios
             if(noEncontro == false)
             {
                 DateTime fechaF = DateTime.Parse(fecha);
-                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fechaF, estado);
                 Console.WriteLine("Fecha: " + nodoEncontrado.darFechaDeCompra());
             }
 
@@ -446,7 +450,7 @@ namespace CalzadoProyecto.servicios
         public static Calzado buscarEnAchivoPorTalla(String pRuta, int pTalla)
         {
 
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "";
             Boolean encontro = false;
@@ -460,6 +464,7 @@ namespace CalzadoProyecto.servicios
             while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
             {
                 tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
                 precio = binaryReader.ReadDouble();
                 talla = binaryReader.ReadInt32();
                 fecha = binaryReader.ReadString();
@@ -477,7 +482,57 @@ namespace CalzadoProyecto.servicios
             if (encontro == true)
             {
                 DateTime fechaF = DateTime.Parse(fecha);
-                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fechaF, estado);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+
+            return nodoEncontrado;
+        }
+
+        public static Calzado buscarEnAchivoPorId(String pRuta, int pId)
+        {
+
+            int talla = 0, id = -1;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+            Calzado nodoEncontrado = null;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (id == pId)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                DateTime fechaF = DateTime.Parse(fecha);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fechaF, estado);
             }
             else
             {
@@ -495,7 +550,7 @@ namespace CalzadoProyecto.servicios
         public static Calzado buscarEnAchivoPorTipo(String pRuta, String pTipo)
         {
 
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "";
             Boolean encontro = false;
@@ -509,6 +564,7 @@ namespace CalzadoProyecto.servicios
             while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
             {
                 tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
                 precio = binaryReader.ReadDouble();
                 talla = binaryReader.ReadInt32();
                 fecha = binaryReader.ReadString();
@@ -525,7 +581,7 @@ namespace CalzadoProyecto.servicios
             if (encontro == true)
             {
                 DateTime fechaF = DateTime.Parse(fecha);
-                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fechaF, estado);
             }
             else
             {
@@ -543,7 +599,7 @@ namespace CalzadoProyecto.servicios
         public static Calzado buscarEnAchivoPorPrecio(String pRuta, double pPrecio)
         {
 
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "";
             Boolean encontro = false;
@@ -557,6 +613,7 @@ namespace CalzadoProyecto.servicios
             while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
             {
                 tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
                 precio = binaryReader.ReadDouble();
                 talla = binaryReader.ReadInt32();
                 fecha = binaryReader.ReadString();
@@ -574,7 +631,7 @@ namespace CalzadoProyecto.servicios
             if (encontro == true)
             {
                 DateTime fechaF = DateTime.Parse(fecha);
-                nodoEncontrado = new Calzado(tipo, talla, precio, fechaF, estado);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fechaF, estado);
             }
             else
             {
@@ -592,7 +649,7 @@ namespace CalzadoProyecto.servicios
         public static Calzado buscarEnAchivoPorFecha(String pRuta, DateTime pFecha)
         {
 
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "";
             DateTime fecha = DateTime.Now;
@@ -607,10 +664,10 @@ namespace CalzadoProyecto.servicios
             while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
             {
                 tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
                 precio = binaryReader.ReadDouble();
                 talla = binaryReader.ReadInt32();
                 fecha = DateTime.Parse(binaryReader.ReadString());
-                
                 estado = binaryReader.ReadString();
 
                 if (estado != Constantes.ELIMINADO)
@@ -624,7 +681,7 @@ namespace CalzadoProyecto.servicios
 
             if (encontro == true)
             {
-                nodoEncontrado = new Calzado(tipo, talla, precio, fecha, estado);
+                nodoEncontrado = new Calzado(id, tipo, talla, precio, fecha, estado);
             }
             else
             {
@@ -642,7 +699,7 @@ namespace CalzadoProyecto.servicios
         //Metodos eliminar
         public static void eliminarEnArchivoPorPosicion(String pRuta, int pPosicion)
         {
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "";
             Boolean noEncontro = false;
@@ -660,6 +717,7 @@ namespace CalzadoProyecto.servicios
                 if (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length)
                 {
                     tipo = binaryReader.ReadString();
+                    id = binaryReader.ReadInt32();
                     precio = binaryReader.ReadDouble();
                     talla = binaryReader.ReadInt32();
                     fecha = binaryReader.ReadString();
@@ -689,9 +747,9 @@ namespace CalzadoProyecto.servicios
             archivo.Close();
         }
 
-        public static void eliminarEnArchivoPorTipo(String pRuta, String pTipo)
+        public static void eliminarEnArchivoPorTalla(String pRuta, int pTalla)
         {
-            int talla = 0;
+            int talla = 0, id = -1;
             double precio = 0.0;
             String tipo = "", estado = "", fecha = "";
             Boolean encontro = false;
@@ -707,6 +765,105 @@ namespace CalzadoProyecto.servicios
             while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
             {
                 tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (talla == pTalla)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
+        public static void eliminarEnArchivoPorId(String pRuta, int pId)
+        {
+            int talla = 0, id = -1;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (id == pId)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
+        public static void eliminarEnArchivoPorTipo(String pRuta, String pTipo)
+        {
+            int talla = 0, id= -1;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
                 precio = binaryReader.ReadDouble();
                 talla = binaryReader.ReadInt32();
                 fecha = binaryReader.ReadString();
@@ -736,11 +893,179 @@ namespace CalzadoProyecto.servicios
             archivo.Close();
         }
 
+        public static void eliminarEnArchivoPorPrecio(String pRuta, double pPrecio)
+        {
+            int talla = 0, id = -1;
+            double precio = 0.0;
+            String tipo = "", estado = "", fecha = "";
+            Boolean encontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = binaryReader.ReadString();
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (precio == pPrecio)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por el precio especificado!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
+        public static void eliminarEnArchivoPorFecha(String pRuta, DateTime pFecha)
+        {
+            int talla = 0, id = -1;
+            double precio = 0.0;
+            String tipo = "", estado = "";
+            DateTime fecha = DateTime.Now;
+            Boolean encontro = false;
+
+            FileStream archivo;
+            BinaryReader binaryReader;
+            BinaryWriter br;
+
+            archivo = new FileStream(pRuta, FileMode.Open);
+            binaryReader = new BinaryReader(archivo, Encoding.UTF8);
+            br = new BinaryWriter(archivo, Encoding.UTF8);
+
+            while (binaryReader.BaseStream.Position != binaryReader.BaseStream.Length && !encontro)
+            {
+                tipo = binaryReader.ReadString();
+                id = binaryReader.ReadInt32();
+                precio = binaryReader.ReadDouble();
+                talla = binaryReader.ReadInt32();
+                fecha = DateTime.Parse(binaryReader.ReadString());
+                estado = binaryReader.ReadString();
+
+                if (estado != Constantes.ELIMINADO)
+                {
+                    if (fecha.Day == pFecha.Day && fecha.Month == pFecha.Month && fecha.Year == pFecha.Year)
+                    {
+                        encontro = true;
+                    }
+                }
+            }
+
+            if (encontro == true)
+            {
+                binaryReader.BaseStream.Position = binaryReader.BaseStream.Position - estado.Length - 1;
+                br.Write(Constantes.ELIMINADO);
+            }
+            else
+            {
+                binaryReader.Close();
+                archivo.Close();
+                throw new MensajeExepcion("¡No se encontro el calzado por la fecha especificada!");
+            }
+
+            binaryReader.Close();
+            archivo.Close();
+        }
+
         //Metodos modificar
+
+        public static void modificarEnArchivoPorPosicion(String pRuta, int pPosicion, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorPosicion(darPath(), pPosicion);
+        }
+
+        public static void modificarEnArchivoPorTalla(String pRuta, Calzado pAntiguo, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorTalla(darPath(), pAntiguo.darTalla());
+        }
+
+        public static void modificarEnArchivoPorId(String pRuta, Calzado pAntiguo, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorId(darPath(), pAntiguo.darId());
+        }
+
         public static void modificarEnArchivoPorTipo(String pRuta, Calzado pAntiguo, Calzado pModificado)
         {
             adicionarCalzadoArchivo(pModificado);
             eliminarEnArchivoPorTipo(darPath(), pAntiguo.darTipo());
+        }
+
+        public static void modificarEnArchivoPorPrecio(String pRuta, Calzado pAntiguo, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorPrecio(darPath(), pAntiguo.darPrecio());
+        }
+
+        public static void modificarEnArchivoPorFecha(String pRuta, Calzado pAntiguo, Calzado pModificado)
+        {
+            adicionarCalzadoArchivo(pModificado);
+            eliminarEnArchivoPorFecha(darPath(), pAntiguo.darFechaDeCompra());
+        }
+
+        //Volcado de datos
+        public static void volcarDatos(String pRuta, String pVolcado)
+        {
+            FileStream archivo;
+            String cad;
+            String[] subCadenas;
+
+
+
+            archivo = new FileStream(pVolcado, FileMode.Open);
+            StreamReader sr;
+            sr = new StreamReader(archivo, Encoding.UTF8);
+
+
+            while (true)
+            {
+                cad = sr.ReadLine();
+                if (cad == null || cad.Length == 0)
+                {
+                    break;
+                }
+                subCadenas = cad.Split(';');
+
+                String tipo = subCadenas[0];
+                int id = Convert.ToInt32(subCadenas[1]);
+                double precio = Convert.ToDouble(subCadenas[2]);
+                int talla = Convert.ToInt32(subCadenas[3]);
+                DateTime fecha = DateTime.Parse(subCadenas[4]);
+                Calzado insertar = new Calzado(id, tipo, talla, precio, fecha, Constantes.ACTIVO);
+
+                adicionarCalzadoArchivo(insertar);
+            }
+
+
+            sr.Close();
+            archivo.Close();
         }
 
     }

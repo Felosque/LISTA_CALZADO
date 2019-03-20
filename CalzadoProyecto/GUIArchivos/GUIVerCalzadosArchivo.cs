@@ -35,10 +35,11 @@ namespace CalzadoProyecto.GUIArchivos
                 Calzado ver = (Calzado) e.Current;
                 dtaDatos.Rows.Add();
                 dtaDatos.Rows[i].Cells[0].Value = i;
-                dtaDatos.Rows[i].Cells[1].Value = ver.darTipo();
-                dtaDatos.Rows[i].Cells[2].Value = ver.darTalla();
-                dtaDatos.Rows[i].Cells[3].Value = ver.darPrecio();
-                dtaDatos.Rows[i].Cells[4].Value = ver.darFechaDeCompra();
+                dtaDatos.Rows[i].Cells[1].Value = ver.darId();
+                dtaDatos.Rows[i].Cells[2].Value = ver.darTipo();
+                dtaDatos.Rows[i].Cells[3].Value = ver.darTalla();
+                dtaDatos.Rows[i].Cells[4].Value = ver.darPrecio();
+                dtaDatos.Rows[i].Cells[5].Value = ver.darFechaDeCompra();
             }
         }
     }
