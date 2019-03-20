@@ -79,7 +79,7 @@
             // 
             // posicion
             // 
-            this.posicion.HeaderText = "posicion";
+            this.posicion.HeaderText = "Posición";
             this.posicion.Name = "posicion";
             this.posicion.Width = 50;
             // 
@@ -111,7 +111,7 @@
             // 
             this.fecha.HeaderText = "Fecha de compra";
             this.fecha.Name = "fecha";
-            this.fecha.Width = 170;
+            this.fecha.Width = 167;
             // 
             // GUIVerCalzadosArchivo
             // 

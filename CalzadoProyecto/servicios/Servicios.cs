@@ -538,7 +538,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+                throw new MensajeExepcion("¡No se encontro el calzado por la id especificada!");
             }
 
             binaryReader.Close();
@@ -789,7 +789,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+                throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
             }
 
             binaryReader.Close();
@@ -838,7 +838,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por la talla especificada!");
+                throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
             }
 
             binaryReader.Close();
@@ -886,7 +886,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por el tipo especificado!");
+                throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
             }
 
             binaryReader.Close();
@@ -935,7 +935,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por el precio especificado!");
+                throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
             }
 
             binaryReader.Close();
@@ -985,7 +985,7 @@ namespace CalzadoProyecto.servicios
             {
                 binaryReader.Close();
                 archivo.Close();
-                throw new MensajeExepcion("¡No se encontro el calzado por la fecha especificada!");
+                throw new MensajeExepcion("¡No existe el calzado especificado dentro del archivo!");
             }
 
             binaryReader.Close();

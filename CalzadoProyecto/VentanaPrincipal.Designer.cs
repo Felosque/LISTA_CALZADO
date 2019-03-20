@@ -159,36 +159,36 @@
             // buscarPorPosiciónToolStripMenuItem
             // 
             this.buscarPorPosiciónToolStripMenuItem.Name = "buscarPorPosiciónToolStripMenuItem";
-            this.buscarPorPosiciónToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.buscarPorPosiciónToolStripMenuItem.Text = "Buscar registro";
+            this.buscarPorPosiciónToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.buscarPorPosiciónToolStripMenuItem.Text = "Buscar calzado";
             this.buscarPorPosiciónToolStripMenuItem.Click += new System.EventHandler(this.buscarPorPosiciónToolStripMenuItem_Click);
             // 
             // editarRegistroToolStripMenuItem
             // 
             this.editarRegistroToolStripMenuItem.Name = "editarRegistroToolStripMenuItem";
-            this.editarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.editarRegistroToolStripMenuItem.Text = "Editar registro";
+            this.editarRegistroToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.editarRegistroToolStripMenuItem.Text = "Editar calzado";
             this.editarRegistroToolStripMenuItem.Click += new System.EventHandler(this.editarRegistroToolStripMenuItem_Click);
             // 
             // borrarRegistroToolStripMenuItem
             // 
             this.borrarRegistroToolStripMenuItem.Name = "borrarRegistroToolStripMenuItem";
-            this.borrarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.borrarRegistroToolStripMenuItem.Text = "Borrar registro";
+            this.borrarRegistroToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.borrarRegistroToolStripMenuItem.Text = "Eliminar calzado";
             this.borrarRegistroToolStripMenuItem.Click += new System.EventHandler(this.borrarRegistroToolStripMenuItem_Click);
             // 
             // cargarArchivoToolStripMenuItem
             // 
             this.cargarArchivoToolStripMenuItem.Name = "cargarArchivoToolStripMenuItem";
-            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.cargarArchivoToolStripMenuItem.Text = "Ver registros";
+            this.cargarArchivoToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.cargarArchivoToolStripMenuItem.Text = "Ver todos los calzados";
             this.cargarArchivoToolStripMenuItem.Click += new System.EventHandler(this.cargarArchivoToolStripMenuItem_Click);
             // 
             // guardarArchivoToolStripMenuItem
             // 
             this.guardarArchivoToolStripMenuItem.Name = "guardarArchivoToolStripMenuItem";
-            this.guardarArchivoToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.guardarArchivoToolStripMenuItem.Text = "Guardar registros";
+            this.guardarArchivoToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.guardarArchivoToolStripMenuItem.Text = "Guardar calzados de la lista";
             this.guardarArchivoToolStripMenuItem.Click += new System.EventHandler(this.guardarArchivoToolStripMenuItem_Click);
             // 
             // configuraciónToolStripMenuItem
@@ -248,8 +248,8 @@
             // volcarRegistrosToolStripMenuItem
             // 
             this.volcarRegistrosToolStripMenuItem.Name = "volcarRegistrosToolStripMenuItem";
-            this.volcarRegistrosToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.volcarRegistrosToolStripMenuItem.Text = "Volcar registros";
+            this.volcarRegistrosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.volcarRegistrosToolStripMenuItem.Text = "Volcar calzados archivo externo";
             this.volcarRegistrosToolStripMenuItem.Click += new System.EventHandler(this.volcarRegistrosToolStripMenuItem_Click);
             // 
             // VentanaPrincipal
